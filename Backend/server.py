@@ -3,11 +3,6 @@ from fastapi.security import OAuth2PasswordRequestForm
 from database import database
 from models import *
 from typing import List
-import time
-import auth
-import methods
-import exceptions
-import uuid
 
 import time
 import auth
