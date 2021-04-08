@@ -1,0 +1,7 @@
+
+DATABASE_USER = "postgres"
+DATABASE_KEY = "localtest"
+DATABASE_PORT = "5433"
+DATABASE_DB = "social_calendar"
+
+SECRET_KEY = "377c5569cbea9f02622db5979782913796e335fb8fd0f0826ca72e272085d81f"
