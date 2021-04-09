@@ -10,6 +10,8 @@ import methods
 import exceptions
 import uuid
 
+# uvicorn server:app --reload
+
 
 app = FastAPI()
 
@@ -54,7 +56,7 @@ async def get_friends(current_user: User = Depends(auth.get_current_active_user)
 
 
 @app.post("/v1/friends/create/", status_code=status.HTTP_201_CREATED)
-async def create_friend_relationship(friend: Friend, user: User = Depends(auth.get_current_active_user)):
+async def create_friend_relationship(friend: NewFriend, user: User = Depends(auth.get_current_active_user)):
     return await methods.create_friend_relationship(friend, user)
 
 

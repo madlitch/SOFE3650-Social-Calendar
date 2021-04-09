@@ -14,6 +14,7 @@ DATABASE_URL = "postgresql://{}:{}@localhost:{}/{}".format(
 
 database = databases.Database(DATABASE_URL)
 engine = sqlalchemy.create_engine(DATABASE_URL, echo=False)
+engine.execute('CREATE EXTENSION IF NOT EXISTS "uuid-ossp";')
 metadata.create_all(engine)
 
 

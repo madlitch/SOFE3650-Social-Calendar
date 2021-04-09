@@ -55,6 +55,11 @@ class Friend(BaseModel):
     relationship: friend_relationship = "pending"
 
 
+class NewFriend(BaseModel):
+    username: str
+    relationship: friend_relationship = "pending"
+
+
 class FriendOut(BaseModel):
     user_id: uuid.UUID
     username: str
@@ -99,7 +104,6 @@ class EventOut(BaseModel):
 
 
 class EventIn(Event):
-    groups: list
     users: list
 
 

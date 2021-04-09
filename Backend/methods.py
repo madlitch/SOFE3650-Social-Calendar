@@ -46,11 +46,11 @@ async def get_friends(user: User):
     return await database.fetch_all(query)
 
 
-async def create_friend_relationship(friend: Friend, user: User):
-    query = select([tables.users.c.user_id]).where(tables.users.c.username == friend.friend_id.lower())
+async def create_friend_relationship(friend: NewFriend, user: User):
+    query = select([tables.users.c.user_id]).where(tables.users.c.username == friend.username.lower())
     friend_id = await database.execute(query)
     if friend_id:
-        if friend.friend_id == user.user_id:
+        if friend_id == user.user_id:
             raise API_409_FRIEND_YOURSELF_EXCEPTION
         query = tables.friends.insert().values(
             user_id_1=friend_id if friend_id < user.user_id else user.user_id,
