@@ -137,4 +137,12 @@ function updateEventRelationship(form) {
     });
 }
 
+// -------------------- Teapot Function :) ------------------
 
+function getTeapot() {
+    httpGet(url, "/v1/teapot",false, function (result){
+       let response = JSON.parse(result.response);
+       console.log(response.detail);
+       document.getElementById("teapot-btn").innerHTML=(response.detail);
+    });
+}
