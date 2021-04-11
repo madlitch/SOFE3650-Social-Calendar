@@ -19,7 +19,7 @@ function createWindow () {
 
 app.on('ready', () => {
     createWindow();
-    win.loadFile('testing.html');
+    win.loadFile('index.html');
     ready = true;
 });
 
