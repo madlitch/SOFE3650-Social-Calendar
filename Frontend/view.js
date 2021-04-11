@@ -31,5 +31,9 @@ $(document).ready(function() {
         let form = document.getElementById('new-user-form');
         createUser(form);
     });
+
+    $('#teapot-btn').on('click',async()=>{
+       getTeapot()
+    });
 });
 

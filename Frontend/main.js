@@ -19,7 +19,7 @@ function createWindow () {
 
 app.on('ready', () => {
     createWindow();
-    win.loadFile('index.html');
+    win.loadFile('calendar.html');
     ready = true;
 });
 
