@@ -38,12 +38,17 @@ function showCalendar(month, year){
                 cellText=document.createTextNode("");
                 cell.appendChild(cellText);
                 row.appendChild(cell);
-            }else if (date>daysInMonth(month, year)){
+            }else if (date>daysInMonth(month, year)&&j===0){
                 break;
+            }else if (date>daysInMonth(month, year)){
+                cell=document.createElement("td");
+                cellText=document.createTextNode("");
+                cell.appendChild(cellText);
+                row.appendChild(cell);
             }else{
                 cell=document.createElement("td");
                 cellText=document.createTextNode(date);
-                if (date===today.getDate()){
+                if (date===today.getDate()&&currentMonth===today.getMonth()&&currentYear===today.getFullYear()){
                     cell.classList.add("bg-info");
                 }
                 cell.appendChild(cellText);
