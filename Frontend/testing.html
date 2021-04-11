@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="UTF-8">
+    <title>Social Calendar</title>
+    <script src="jquery-3.5.1.min.js"></script>
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <script type="text/javascript" src="view.js"></script>
+    <script type="text/javascript" src="requests.js"></script>
+<!--
+If you want to see this HTML document in the Electron window, update the
+
+    win.loadFile('index.html');
+
+in main.js @ line 32 to
+
+    win.loadFile('testing.html');
+-->
+</head>
+<body style="background: white;">
+<div style="padding: 20px">
+    <h2>login</h2>
+    <form id="login-form" action="javascript:void(0);">
+        <label>
+            username
+            <input class="form-control" type="text" name="username">
+        </label>
+        <label>
+            password
+            <input class="form-control" type="password" name="password">
+        </label>
+    </form>
+    <button class="btn btn-primary" id="login-btn">login</button>
+</div>
+<div style="padding: 20px">
+    <h2>new user</h2>
+    <form id="new-user-form" action="javascript:void(0);">
+        <label>
+            username
+            <input class="form-control" type="text" name="username">
+        </label>
+        <label>
+            first name
+            <input class="form-control" type="text" name="first_name">
+        </label>
+        <label>
+            last name
+            <input class="form-control" type="text" name="last_name">
+        </label>
+        <label>
+            password
+            <input class="form-control" type="password" name="password">
+        </label>
+    </form>
+    <button class="btn btn-primary" id="new-user-btn">sign up</button>
+</div>
+<div style="padding: 20px">
+    <h2>add friend</h2>
+    <form id="add-friend-form" action="javascript:void(0);">
+        <label>
+            username
+            <input class="form-control" type="text" name="username">
+        </label>
+    </form>
+    <button class="btn btn-primary" id="add-friend-btn">add friend</button>
+</div>
+<div style="padding: 20px">
+    <h2>get requests</h2>
+    <button class="btn btn-primary" id="friends-btn">friends</button>
+    <button class="btn btn-primary" id="current-user-btn">current user</button>
+    <button class="btn btn-primary" id="events-btn">events</button>
+</div>
+</body>
+</html>

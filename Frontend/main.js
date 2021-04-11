@@ -10,18 +10,16 @@ function createWindow () {
         minWidth: 1000,
         minHeight: 800,
         webPreferences: {
-            nodeIntegration: true
+            nodeIntegration: true,
+            contextIsolation: false
         }
     });
     win.setBackgroundColor('#000000');
 }
 
-app.commandLine.appendSwitch('js-flags', '--max-old-space-size=12288');
-
-
 app.on('ready', () => {
     createWindow();
-    win.loadFile('index.html');
+    win.loadFile('testing.html');
     ready = true;
 });
 
@@ -29,9 +27,6 @@ app.on("window-all-closed", function() {
     app.quit();
 });
 
-// app.on("activate", function() {
-//     createWindow();
-//     win.loadFile('index.html');
-// });
 
 app.allowRendererProcessReuse = false;
+
