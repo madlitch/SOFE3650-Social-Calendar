@@ -53,7 +53,7 @@ function showCalendar(month, year){
             tbl.appendChild(row);
         }
     }
-    console.log(tbl)
+    //console.log(tbl.children[x].children[y].innerHTML) x is the week, y is the day
 }
 
 function daysInMonth(inMonth, inYear){
