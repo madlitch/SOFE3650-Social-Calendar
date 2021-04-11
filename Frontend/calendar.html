@@ -21,10 +21,14 @@ Log out-->
         <div class="col-sm-10">
             <div class="card" id="top-bar">
                 <div class="card-body">
-                    <button type="button" class="btn btn-info">Add Event</button>
-                    <button type="button" class="btn btn-info">Modify Event</button>
-                    <button type="button" class="btn btn-info">Reload Events</button>
-                    <button type="button" class="btn btn-secondary" id="teapot-btn">Teapot</button>
+                    <div class="btn-group float-left" >
+                        <button type="button" class="btn btn-info" id="eventAdd">Add Event</button>
+                        <button type="button" class="btn btn-info">Modify Event</button>
+                    </div>
+                    <div class="btn-group float-right">
+                        <button type="button" class="btn btn-secondary">&#8635; Reload Events</button>
+                        <button type="button" class="btn btn-outline-primary" id="add-friend" onclick="addFriend()">Add Friend</button>
+                    </div>
                 </div>
             </div>
             <div class="card">
@@ -53,21 +57,51 @@ Log out-->
             </div>
         </div>
         <div class="col-sm-2">
-            <div id="user-bar">
-                Tony User's stuff goes here!
+
+
+            <div class="card d-flex" id="user-info">
+                <div class="card-header" id="user-bar">
+                    <h3 class="card-title">Tony User</h3>
+                    <h6 class="card-subtitle mb-2 text-muted">tonyuser</h6>
+                </div>
+                <ul class="list-group list-group-flush" id="friend-group">
+                </ul>
+                <div class="card-body" id="user-control">
+                    <a href="#" class="card-link">Logout!</a>
+                    <a href="testing.html" class="card-link">Back to test!</a>
+                </div>
             </div>
-            <div class="friends">
-                Tony's friends go here!
-            </div>
-            <div class="friends">
-                Tony's friends go here!
-            </div>
-            <div class="friends">
-                Tony's friends go here!
-            </div>
-            <a href="index.html">Going back!</a>
-            <a href="testing.html">testing!</a>
     </div>
+    </div>
+</div>
+
+<div class="modal" id="eventModal" style="padding: 20px">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h3>Add Event</h3>
+        <form id="add-event-form" action="javascript:void(0);">
+            <label>
+                Event Name
+                <input class="form-control" type="text" name="name">
+            </label>
+            <label>
+                Location
+                <input class="form-control" type="text" name="venue">
+            </label>
+            <label>
+                Visibility
+                <select class="form-control" type="text" list="visibility" name="visibility">
+                    <option value="public">Public</option>
+                    <option value="friends">Friends</option>
+                    <option value="private">Private</option>
+                </select>
+            </label>
+            <label>
+                Date
+                <input class="form-control" type="date" name="time">
+            </label>
+            <button class="btn btn-primary" id="addEvent-btn">Add Event</button>
+        </form>
     </div>
 </div>
 

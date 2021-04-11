@@ -69,3 +69,32 @@ function showCalendar(month, year){
 function daysInMonth(inMonth, inYear){
     return 32-new Date(inYear, inMonth, 32).getDate();
 }
+
+var modal = document.getElementById("eventModal");
+var btn=document.getElementById("eventAdd");
+var span=document.getElementsByClassName("close")[0];
+
+btn.onclick = function() {
+    modal.style.display = "block";
+}
+
+span.onclick = function() {
+    modal.style.display = "none";
+}
+
+window.onclick = function(event) {
+    if (event.target === modal) {
+        modal.style.display = "none";
+    }
+}
+
+function addFriend(){
+    list=document.getElementById("friend-group");
+    len=list.getElementsByTagName("li").length;
+    newF=document.createElement("li");
+    newF.setAttribute("class","list-group-item");
+    newF.setAttribute("id",""+(len+1));
+    friendText=document.createTextNode("Friend: "+(len+1));
+    newF.appendChild(friendText);
+    list.appendChild(newF);
+}
