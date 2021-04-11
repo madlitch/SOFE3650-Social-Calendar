@@ -1,6 +1,6 @@
-#**Social Calendar**
+# **Social Calendar**
 
-##Description
+## Description
 
 Social Calendar is a full-stack deployment of a Social Calendar desktop application and backend server.
 
