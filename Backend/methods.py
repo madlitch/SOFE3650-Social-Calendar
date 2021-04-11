@@ -209,6 +209,14 @@ async def get_events(user: User):
     return events
 
 
+async def get_friends_events(user: User):
+    print(get_friends(user))
+    query = select([tables.events])\
+        .where(tables.events.c.visibility == event_visibility.friends)
+    result = await database.fetch_all(query)
+    return result
+
+
 async def get_event_users(event_id: uuid.UUID, user: User = None):
     if not user or await check_user_event_relationship(event_id, user.user_id):
         query = select([tables.users_events.join(tables.users)]) \
@@ -229,14 +237,6 @@ async def get_event_user_ids(event_id: uuid.UUID, user: User = None):
             .where(tables.users_events.c.event_id == event_id)
         result = [row['user_id'] for row in await database.fetch_all(query)]
         return result
-
-
-async def get_friends_events(user: User):
-    print(get_friends(user))
-    query = select([tables.events])\
-        .where(tables.events.c.visibility == event_visibility.friends)
-    result = await database.fetch_all(query)
-    return result
 
 
 

@@ -86,7 +86,7 @@ function addFriend(form) {
     });
 }
 
-function updateFriend(form) { // This "form" should not be visible to the user
+function updateFriendRelationship(form) { // This "form" should not be visible to the user
     httpPost(url, "/v1/friends/update", false, stringifyForm(form), function (result) {
         let response = JSON.parse(result.response);
         console.log(response);
@@ -95,10 +95,45 @@ function updateFriend(form) { // This "form" should not be visible to the user
 
 // -------------------- Event Functions --------------------
 
-function getEvents() {
+function getUsersEvents() {
     httpGet(url, "/v1/events", true,function (result) {
         let response = JSON.parse(result.response);
         console.log(response)
+    });
+}
+
+function getFriendsEvents() {
+    httpGet(url, "/v1/events/friends", true,function (result) {
+        let response = JSON.parse(result.response);
+        console.log(response)
+    });
+}
+
+function createEvent(form) {
+    httpPost(url, "/v1/events/create", true, stringifyForm(form), function (result) {
+        let response = JSON.parse(result.response);
+        console.log(response);
+    });
+}
+
+function joinEvent(form) {
+    httpPost(url, "/v1/events/join", true, stringifyForm(form), function (result) {
+        let response = JSON.parse(result.response);
+        console.log(response);
+    });
+}
+
+function updateEventUsers(form) {
+    httpPost(url, "/v1/events/update/users", true, stringifyForm(form), function (result) {
+        let response = JSON.parse(result.response);
+        console.log(response);
+    });
+}
+
+function updateEventRelationship(form) {
+    httpPost(url, "/v1/events/update/relationship", true, stringifyForm(form), function (result) {
+        let response = JSON.parse(result.response);
+        console.log(response);
     });
 }
 

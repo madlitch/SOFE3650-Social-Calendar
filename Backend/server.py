@@ -70,7 +70,7 @@ async def get_events(user: User = Depends(auth.get_current_active_user)):
     return await methods.get_events(user)
 
 
-@app.get("/v1/events/public")
+@app.get("/v1/events/friends")
 async def get_public_events(user: User = Depends(auth.get_current_active_user)):
     return await methods.get_friends_events(user)
 
