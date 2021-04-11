@@ -29,6 +29,7 @@ function showCalendar(month, year){
     monthAndYear.innerHTML=months[month]+" "+year;
 
     let date=1;
+    let actualDate=0;
     for (let i=0;i<6;i++){
         let row=document.createElement("tr");
 
@@ -41,12 +42,17 @@ function showCalendar(month, year){
             }else if (date>daysInMonth(month, year)&&j===0){
                 break;
             }else if (date>daysInMonth(month, year)){
+                actualDate+=1;
                 cell=document.createElement("td");
+                cell.setAttribute("id", ""+currentYear+""+months[currentMonth]+""+(('00'+actualDate).slice(-2)));
                 cellText=document.createTextNode("");
                 cell.appendChild(cellText);
                 row.appendChild(cell);
             }else{
+                actualDate+=1;
                 cell=document.createElement("td");
+
+                cell.setAttribute("id", ""+currentYear+""+months[currentMonth]+""+(('00'+actualDate).slice(-2)));
                 cellText=document.createTextNode(date);
                 if (date===today.getDate()&&currentMonth===today.getMonth()&&currentYear===today.getFullYear()){
                     cell.classList.add("bg-info");
@@ -58,7 +64,6 @@ function showCalendar(month, year){
             tbl.appendChild(row);
         }
     }
-    //console.log(tbl.children[x].children[y].innerHTML) x is the week, y is the day
 }
 
 function daysInMonth(inMonth, inYear){
