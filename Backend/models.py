@@ -103,10 +103,6 @@ class EventOut(BaseModel):
     members: Optional[List[UserOut]]
 
 
-class EventIn(Event):
-    users: list
-
-
 class EventUpdateName(BaseModel):
     event_id: uuid.UUID
     name: str

@@ -76,7 +76,7 @@ async def get_public_events(user: User = Depends(auth.get_current_active_user)):
 
 
 @app.post("/v1/events/create/", status_code=status.HTTP_201_CREATED, response_model=Event)
-async def create_event(event: EventIn, user: User = Depends(auth.get_current_active_user)):
+async def create_event(event: Event, user: User = Depends(auth.get_current_active_user)):
     return await methods.create_event(event, user)
 
 

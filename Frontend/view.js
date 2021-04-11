@@ -24,7 +24,7 @@ $(document).ready(function() {
     });
 
     $('#events-btn').on('click', async () => {
-        getEvents()
+        getUsersEvents()
     });
 
     $('#new-user-btn').on('click', async () => {
@@ -35,5 +35,10 @@ $(document).ready(function() {
     $('#teapot-btn').on('click',async()=>{
        getTeapot()
     });
+
+    $('#add-event-btn').on('click', async () =>{
+        let form = document.getElementById('add-event-form');
+        createEvent(form);
+    })
 });
 

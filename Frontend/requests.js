@@ -38,16 +38,15 @@ function httpPost(url, endpoint, locked, data, callback) {
 turns form data into api url friendly string
  */
 
-function stringifyForm(form) {
-    let formData = new FormData(form);
-    return JSON.stringify(Object.fromEntries(formData.entries()));
+function stringifyForm(data) {
+    return JSON.stringify(Object.fromEntries(data.entries()));
 }
 
 // -------------------- User Functions --------------------
 
 function loginUser(form) {
     let data = new FormData(form);
-    httpPost(url, "/token", data, function (result) {
+    httpPost(url, "/token", false, data, function (result) {
         let response = JSON.parse(result.response);
         if (result.status === 200) {
             token = response["access_token"];
@@ -57,7 +56,8 @@ function loginUser(form) {
 }
 
 function createUser(form) {
-    httpPost(url, "/v1/users/create", false, stringifyForm(form), function (result) {
+    let data = new FormData(form);
+    httpPost(url, "/v1/users/create", false, stringifyForm(data), function (result) {
         let response = JSON.parse(result.response);
         console.log(response);
     });
@@ -80,14 +80,16 @@ function getFriends() {
 }
 
 function addFriend(form) {
-    httpPost(url, "/v1/friends/create", false, stringifyForm(form), function (result) {
+    let data = new FormData(form);
+    httpPost(url, "/v1/friends/create", false, stringifyForm(data), function (result) {
         let response = JSON.parse(result.response);
         console.log(response);
     });
 }
 
 function updateFriendRelationship(form) { // This "form" should not be visible to the user
-    httpPost(url, "/v1/friends/update", false, stringifyForm(form), function (result) {
+    let data = new FormData(form);
+    httpPost(url, "/v1/friends/update", false, stringifyForm(data), function (result) {
         let response = JSON.parse(result.response);
         console.log(response);
     });
@@ -110,28 +112,35 @@ function getFriendsEvents() {
 }
 
 function createEvent(form) {
-    httpPost(url, "/v1/events/create", true, stringifyForm(form), function (result) {
+    let data = new FormData(form);
+    let date = new Date(data.get('time').toString());
+    data.set('time', date.toISOString());
+    console.log(stringifyForm(data));
+    httpPost(url, "/v1/events/create", true, stringifyForm(data), function (result) {
         let response = JSON.parse(result.response);
         console.log(response);
     });
 }
 
 function joinEvent(form) {
-    httpPost(url, "/v1/events/join", true, stringifyForm(form), function (result) {
+    let data = new FormData(form);
+    httpPost(url, "/v1/events/join", true, stringifyForm(data), function (result) {
         let response = JSON.parse(result.response);
         console.log(response);
     });
 }
 
 function updateEventUsers(form) {
-    httpPost(url, "/v1/events/update/users", true, stringifyForm(form), function (result) {
+    let data = new FormData(form);
+    httpPost(url, "/v1/events/update/users", true, stringifyForm(data), function (result) {
         let response = JSON.parse(result.response);
         console.log(response);
     });
 }
 
 function updateEventRelationship(form) {
-    httpPost(url, "/v1/events/update/relationship", true, stringifyForm(form), function (result) {
+    let data = new FormData(form);
+    httpPost(url, "/v1/events/update/relationship", true, stringifyForm(data), function (result) {
         let response = JSON.parse(result.response);
         console.log(response);
     });

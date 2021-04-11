@@ -98,13 +98,12 @@ async def check_friend_relationship(friend_id: uuid.UUID, user_id: uuid.UUID):
 # Events ---------------------------------------------------
 
 
-async def create_event(event: EventIn, user: User):
+async def create_event(event: Event, user: User):
     query = tables.events.insert().values(name=event.name, creator=user.user_id, venue=event.venue,
                                           visibility=event.visibility)
     event.event_id = await database.execute(query)
     query = tables.users_events.insert().values(event_id=event.event_id, user_id=user.user_id, relationship='admin')
     await database.execute(query)
-    await add_event_users(event.users, event.event_id, user)
     return {**event.dict(), "creator": user.user_id}
 
 
