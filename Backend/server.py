@@ -90,11 +90,6 @@ async def update_event_users(event_users: EventUsersIn,  user: User = Depends(au
     return await methods.update_event_users(event_users, user)
 
 
-@app.post("/v1/events/update/name")
-async def update_event_name(event_name: EventUpdateName,  user: User = Depends(auth.get_current_active_user)):
-    return await methods.update_event_name(event_name, user)
-
-
 @app.post("/v1/events/update/relationship")
 async def update_event_relationship(user: User = Depends(auth.get_current_active_user)):
     return await methods.update_event_relationship(user)

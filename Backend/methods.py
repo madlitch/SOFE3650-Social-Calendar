@@ -182,15 +182,6 @@ async def check_user_event_admin_relationship(event_id: uuid.UUID, user_id: uuid
         raise API_401_EVENT_ADMIN_EXCEPTION
 
 
-async def update_event_name(event_name: EventUpdateName, user: User):
-    if await check_user_event_admin_relationship(event_name.event_id, user.user_id):
-        query = tables.events.update()\
-            .where(tables.events.c.event_id == event_name.event_id)\
-            .values(name=event_name.name)
-        await database.execute(query)
-        return {'detail': 'name changed successfully'}
-
-
 async def update_event_relationship(event_data: EventUpdateRelationship, user: User):
     query = tables.users_events.update()\
         .where(tables.users_events.c.user_id == user.user_id)\
