@@ -36,7 +36,7 @@ $(document).ready(function() {
     });
 
     $('#events-btn').on('click', async () => {
-        getPublicEvents()
+
     });
 
     $('#new-user-btn').on('click', async () => {
@@ -53,7 +53,7 @@ $(document).ready(function() {
         createEvent(form);
     });
 
-    $('#event-btn').on('click', async () =>{
+    $('#new-event-btn').on('click', async () =>{
         eventModal.style.display = 'block';
     });
 

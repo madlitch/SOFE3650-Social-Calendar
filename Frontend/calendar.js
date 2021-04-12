@@ -70,20 +70,18 @@ function daysInMonth(inMonth, inYear) {
     return 32 - new Date(inYear, inMonth, 32).getDate();
 }
 
-function listFriend(username, name, id) {
+function listFriend(username, name) {
     const list = document.getElementById('friend-group');
     const len = list.getElementsByTagName('li').length;
     const newF = document.createElement('li');
     newF.setAttribute('class', 'list-group-item');
     newF.setAttribute('id', `${len + 1}`);
-    console.log(id);
     const friendText = document.createTextNode(name + " - " + username);
     newF.appendChild(friendText);
     list.appendChild(newF);
 }
 
 function login() {
-    console.log('hello');
     const y = document.getElementById('login-btn');
     const j = document.getElementById('loginScreen');
     const x = document.getElementById('hideIt');
@@ -106,6 +104,10 @@ function logout() {
     y.style.display = 'block';
     j.style.display = 'block';
     u.reset();
+}
+
+function refreshEvents() {
+
 }
 
 function sleep(ms) {
