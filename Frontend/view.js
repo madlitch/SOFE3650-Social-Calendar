@@ -36,7 +36,8 @@ $(document).ready(function() {
     });
 
     $('#events-btn').on('click', async () => {
-
+        getPublicEvents();
+        getFriendsEvents();
     });
 
     $('#new-user-btn').on('click', async () => {

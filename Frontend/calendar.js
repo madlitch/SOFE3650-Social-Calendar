@@ -80,6 +80,14 @@ function listFriend(username, name) {
     list.appendChild(newF);
 }
 
+function addEvent(evTitle, evDate)  {
+    let date=evDate.substring(0,4)+""+months[(evDate.substring(5,7))-1]+""+evDate.substring(8,10);
+    let modDay=document.getElementById(date);
+    modDay.innerHTML = evTitle;
+    console.log(date);
+    console.log(evTitle);
+}
+
 function login() {
     const y = document.getElementById('login-btn');
     const j = document.getElementById('loginScreen');
