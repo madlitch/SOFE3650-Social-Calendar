@@ -7,7 +7,6 @@ from typing import List
 import auth
 import methods
 import exceptions
-import uuid
 
 # uvicorn server:app --reload
 

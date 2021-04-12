@@ -1,14 +1,13 @@
 from database import database
 from models import *
-from sqlalchemy import or_, func
-from sqlalchemy.sql import select, insert, desc
+from sqlalchemy import or_
+from sqlalchemy.sql import select
 from exceptions import *
 import auth
 import tables
 import models
 import asyncpg
 import uuid
-import json
 
 
 # User ---------------------------------------------------
@@ -116,7 +115,7 @@ async def get_public_events():
     return result
 
 
-async def get_friends_events(user: User):
+async def get_friends_events(user: User):  # very fucking slow
     query = select([tables.events.join(tables.friends, tables.events.c.creator == tables.friends.c.user_id_1)])\
         .where(or_(tables.friends.c.user_id_1 == user.user_id, tables.friends.c.user_id_2 == user.user_id)) \
         .where(tables.users.c.user_id != user.user_id)\

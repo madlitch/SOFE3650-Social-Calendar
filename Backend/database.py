@@ -1,5 +1,4 @@
 from tables import metadata
-from sqlalchemy import text
 
 import databases
 import sqlalchemy
