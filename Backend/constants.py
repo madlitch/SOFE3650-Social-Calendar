@@ -1,4 +1,3 @@
-
 DATABASE_USER = "postgres"
 DATABASE_KEY = "localtest"
 DATABASE_PORT = "5433"
