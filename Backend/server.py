@@ -64,34 +64,27 @@ async def update_friend_relationship(friend: Friend, user: User = Depends(auth.g
     return await methods.update_friend_relationship(friend, user)
 
 
-@app.get("/v1/events/", response_model=List[EventOut])
-async def get_events(user: User = Depends(auth.get_current_active_user)):
-    return await methods.get_events(user)
-
-
-@app.get("/v1/events/friends")
-async def get_public_events(user: User = Depends(auth.get_current_active_user)):
-    return await methods.get_friends_events(user)
-
-
 @app.post("/v1/events/create/",  response_model=Event)
 async def create_event(event: Event, user: User = Depends(auth.get_current_active_user)):
     return await methods.create_event(event, user)
 
 
-@app.post("/v1/events/join")
-async def join_event(event_id: uuid.UUID, user: User = Depends(auth.get_current_active_user)):
-    return await methods.join_event(event_id, user)
+@app.get("/v1/events/public")
+async def get_public_events(user: User = Depends(auth.get_current_active_user)):
+    return await methods.get_public_events()
 
 
-@app.post("/v1/events/update/users")
-async def update_event_users(event_users: EventUsersIn,  user: User = Depends(auth.get_current_active_user)):
-    return await methods.update_event_users(event_users, user)
+@app.get("/v1/events/friends")
+async def get_friends_events(user: User = Depends(auth.get_current_active_user)):
+    return await methods.get_friends_events(user)
 
 
-@app.post("/v1/events/update/relationship")
-async def update_event_relationship(user: User = Depends(auth.get_current_active_user)):
-    return await methods.update_event_relationship(user)
+@app.get("/v1/events/private")
+async def get_private_events(user: User = Depends(auth.get_current_active_user)):
+    return await methods.get_private_events(user)
+
+
+
 
 
 

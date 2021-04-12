@@ -91,29 +91,3 @@ class Event(BaseModel):
     visibility: event_visibility = "private"
     venue: Optional[str] = None
     time: Optional[datetime.datetime]
-
-
-class EventOut(BaseModel):
-    event_id: uuid.UUID = None
-    name: str
-    creator: uuid.UUID = None
-    visibility: event_visibility = "private"
-    venue: Optional[str] = None
-    time: Optional[datetime.datetime]
-    members: Optional[List[UserOut]]
-
-
-class EventUpdateName(BaseModel):
-    event_id: uuid.UUID
-    name: str
-
-
-class EventUpdateRelationship(BaseModel):
-    event_id: uuid.UUID = None
-    relationship: users_event_relationship
-
-
-class EventUsersIn(BaseModel):
-    event_id: uuid.UUID
-    groups: Optional[list]
-    users: Optional[list]

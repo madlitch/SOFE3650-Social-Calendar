@@ -102,142 +102,39 @@ async def check_friend_relationship(friend_id: uuid.UUID, user_id: uuid.UUID):
 
 async def create_event(event: Event, user: User):
     query = tables.events.insert().values(name=event.name, creator=user.user_id, venue=event.venue,
-                                          visibility=event.visibility)
+                                          visibility=event.visibility, time=event.time.replace(tzinfo=None))
     event.event_id = await database.execute(query)
     query = tables.users_events.insert().values(event_id=event.event_id, user_id=user.user_id, relationship='admin')
     await database.execute(query)
     return {**event.dict(), "creator": user.user_id}
 
 
-async def join_event(event_id: uuid.UUID, user: User):
-    query = select([tables.events]).where(tables.events.c.event_id == event_id)
-    event = await database.fetch_one(query)
-    query = tables.users_events.insert().values(event_id=event_id, user_id=user.user_id, relationship='attending')
-    if event['visibility'] == models.event_visibility.public:
-        try:
-            await database.execute(query)
-        except asyncpg.UniqueViolationError:
-            raise API_409_RELATIONSHIP_CONFLICT_EXCEPTION
-    elif event['visibility'] == models.event_visibility.friends:
-        if await check_friend_relationship(event['creator'], user.user_id):
-            try:
-                await database.execute(query)
-            except asyncpg.UniqueViolationError:
-                raise API_409_RELATIONSHIP_CONFLICT_EXCEPTION
-    elif event['visibility'] == models.event_visibility.private:
-        raise API_401_EVENT_ADMIN_EXCEPTION
-
-
-async def update_event_users(event_in, user: User):
-    query = select([tables.events]).where(tables.events.c.event_id == event_in.event_id)
-    event = dict(await database.fetch_one(query))
-    if event:
-        if event['visibility'] == models.event_visibility.public:
-            return await add_event_users(event_in.users, event_in.event_id, user)
-        elif event['visibility'] == models.event_visibility.friends:
-            if check_friend_relationship(event['creator'], user.user_id):
-                return await add_event_users(event_in.users, event_in.event_id, user)
-        elif event['visibility'] == models.event_visibility.private:
-            if await check_user_event_admin_relationship(event_in.event_id, user.user_id):
-                return await add_event_users(event_in.users, event_in.event_id, user)
-
-
-async def add_event_users(users: list, event_id: uuid.UUID, user: User):
-    if None not in users:
-        for inv_users in users:
-            await check_friend_relationship(inv_users.user_id, user.user_id)
-    values = []
-    for user_id in users:
-        values.append({'event_id': event_id, 'user_id': user_id, 'relationship': 'invited'})
-    query = tables.users_events.insert()
-    try:
-        await database.execute_many(query, values)
-    except asyncpg.exceptions.ForeignKeyViolationError:
-        raise API_404_USER_NOT_FOUND_EXCEPTION
-    except asyncpg.exceptions.UniqueViolationError:
-        raise API_409_RELATIONSHIP_CONFLICT_EXCEPTION
-    return {"detail": "user(s) added"}
-
-
-async def check_user_event_relationship(event_id: uuid.UUID, user_id: uuid.UUID):
-    query = tables.users_events.select().where(tables.users_events.c.user_id == user_id)\
-        .where(tables.users_events.c.event_id == event_id)
-    existing_relationship = await database.execute(query)
-    if existing_relationship:
-        return True
-    else:
-        raise API_401_EVENT_CREDENTIALS_EXCEPTION
-
-
-async def check_user_event_admin_relationship(event_id: uuid.UUID, user_id: uuid.UUID):
-    query = select([tables.users_events.c.relationship]) \
-        .where(tables.users_events.c.user_id == user_id) \
-        .where(tables.users_events.c.event_id == event_id)
-    is_admin = await database.fetch_one(query)
-    if is_admin:
-        if is_admin['relationship'] == models.users_event_relationship.admin:
-            return True
-        else:
-            raise API_401_EVENT_ADMIN_EXCEPTION
-    else:
-        raise API_401_EVENT_ADMIN_EXCEPTION
-
-
-async def update_event_relationship(event_data: EventUpdateRelationship, user: User):
-    query = tables.users_events.update()\
-        .where(tables.users_events.c.user_id == user.user_id)\
-        .where(tables.users_events.c.event_id == event_data.event_id)\
-        .values(tables.users_events.c.relationship == event_data.relationship)
-    if await database.execute(query):
-        return {'detail': 'relationship updated successfully'}
-    else:
-        raise API_404_RELATIONSHIP_EXCEPTION
-
-
-async def get_events(user: User):
+async def get_public_events():
     query = select([tables.users_events.join(tables.events)])\
-        .where(tables.users_events.c.user_id == user.user_id)
-    result = await database.fetch_all(query)
-    events = []
-    for row in result:
-        events.append(EventOut(event_id=row['event_id'],
-                               members=await get_event_users(row['event_id']),
-                               name=row['name'],
-                               creator=row['creator'],
-                               visibility=row['visibility'],
-                               venue=row['venue'],
-                               time=row['time']))
-    return events
-
-
-async def get_friends_events(user: User):
-    print(get_friends(user))
-    query = select([tables.events])\
-        .where(tables.events.c.visibility == event_visibility.friends)
+        .where(tables.events.c.visibility == event_visibility.public)
     result = await database.fetch_all(query)
     return result
 
 
-async def get_event_users(event_id: uuid.UUID, user: User = None):
-    if not user or await check_user_event_relationship(event_id, user.user_id):
-        query = select([tables.users_events.join(tables.users)]) \
-            .where(tables.users_events.c.event_id == event_id)
-        result = await database.fetch_all(query)
-        users = []
-        for row in result:
-            users.append(UserOut(user_id=row['user_id'],
-                                 username=row['username'],
-                                 first_name=row['first_name'],
-                                 last_name=row['last_name']))
-        return users
+async def get_friends_events(user: User):
+    query = select([tables.events.join(tables.friends, tables.events.c.creator == tables.friends.c.user_id_1)])\
+        .where(or_(tables.friends.c.user_id_1 == user.user_id, tables.friends.c.user_id_2 == user.user_id)) \
+        .where(tables.users.c.user_id != user.user_id)\
+        .where(tables.events.c.visibility != event_visibility.private)\
+        .union(
+        select([tables.events.join(tables.friends, tables.events.c.creator == tables.friends.c.user_id_2)])
+        .where(or_(tables.friends.c.user_id_1 == user.user_id, tables.friends.c.user_id_2 == user.user_id))
+        .where(tables.users.c.user_id != user.user_id)
+        .where(tables.events.c.visibility != event_visibility.private))
+    return await database.fetch_all(query)
 
 
-async def get_event_user_ids(event_id: uuid.UUID, user: User = None):
-    if not user or await check_user_event_relationship(event_id, user.user_id):
-        query = select([tables.users_events.c.user_id])\
-            .where(tables.users_events.c.event_id == event_id)
-        result = [row['user_id'] for row in await database.fetch_all(query)]
-        return result
+async def get_private_events(user: User):
+    query = select([tables.users_events.join(tables.events)])\
+        .where(tables.users_events.c.user_id == user.user_id)\
+        .where(tables.events.c.visibility == event_visibility.private)
+    return await database.fetch_all(query)
+
 
 
 
