@@ -72,6 +72,11 @@ API_406_USERNAME_EXCEPTION = HTTPException(
             detail="username does not follow guidelines"
         )
 
+API_406_PASSWORD_EXCEPTION = HTTPException(
+            status_code=status.HTTP_406_NOT_ACCEPTABLE,
+            detail="password does not follow guidelines"
+        )
+
 API_418_TEAPOT_EXCEPTION = HTTPException(
     status_code=418,
     detail="I'm a teapot",
