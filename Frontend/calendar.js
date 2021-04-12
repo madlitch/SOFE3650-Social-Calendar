@@ -82,12 +82,22 @@ function listFriend(username, name) {
     list.appendChild(newF);
 }
 
-function addEvent(evTitle, evDate)  {
-    let evMonth=(evDate.substring(5,7))-1;
-    let date=evDate.substring(0,4)+""+months[(evDate.substring(5,7))-1]+""+evDate.substring(8,10);
+function addEvBtn(evTitle, evDate, evVenue, modDay) {
+    const newBtn = document.createElement("button");
+    const len = modDay.getElementsByTagName("button").length;
+    newBtn.setAttribute('id',`${evDate}${(`000${len}`).slice(-3)}`);
+    const buttonText = document.createTextNode(evTitle + " - " + evVenue);
+    newBtn.appendChild(buttonText);
+    modDay.appendChild(newBtn);
+}
+
+function addEvent(evTitle, evDate, evVenue) {
+    const evMonth=(evDate.substring(5,7))-1;
+    const date=evDate.substring(0,4)+""+months[(evDate.substring(5,7))-1]+""+evDate.substring(8,10);
     if (evMonth===currentMonth){
-        let modDay=document.getElementById(date);
-        modDay.innerHTML = evTitle;
+        const modDay=document.getElementById(date);
+        modDay.appendChild(document.createElement("br"));
+        addEvBtn(evTitle, date, evVenue, modDay);
     }
 }
 

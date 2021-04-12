@@ -109,7 +109,7 @@ function getPublicEvents() {
     httpGet(url, "/v1/events/public", true,function (result) {
         let response = JSON.parse(result.response);
         response.forEach(event => {
-            addEvent(event.name, event.time);
+            addEvent(event.name, event.time, event.venue);
         });
     });
 }
@@ -118,6 +118,9 @@ function getFriendsEvents() {
     httpGet(url, "/v1/events/friends", true,function (result) {
         let response = JSON.parse(result.response);
         console.log(response)
+        response.forEach(event => {
+            addEvent(event.name, event.time, event.venue);
+        });
     });
 }
 
@@ -125,6 +128,9 @@ function getPrivateEvents() {
     httpGet(url, "/v1/events/private", true,function (result) {
         let response = JSON.parse(result.response);
         console.log(response)
+        response.forEach(event => {
+            addEvent(event.name, event.time, event.venue);
+        });
     });
 }
 
