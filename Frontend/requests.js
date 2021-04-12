@@ -115,7 +115,6 @@ function createEvent(form) {
     let data = new FormData(form);
     let date = new Date(data.get('time').toString());
     data.set('time', date.toISOString());
-    console.log(stringifyForm(data));
     httpPost(url, "/v1/events/create", true, stringifyForm(data), function (result) {
         let response = JSON.parse(result.response);
         console.log(response);

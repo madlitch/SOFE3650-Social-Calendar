@@ -32,7 +32,8 @@ function showCalendar(month, year){
     let actualDate=0;
     for (let i=0;i<6;i++){
         let row=document.createElement("tr");
-
+        let cell;
+        let cellText;
         for (let j=0;j<7;j++){
             if (i===0&&j<firstDay){
                 cell=document.createElement("td");
@@ -70,31 +71,31 @@ function daysInMonth(inMonth, inYear){
     return 32-new Date(inYear, inMonth, 32).getDate();
 }
 
-var modal = document.getElementById("eventModal");
-var btn=document.getElementById("eventAdd");
-var span=document.getElementsByClassName("close")[0];
+let modal = document.getElementById("eventModal");
+let btn=document.getElementById("eventAdd");
+let span=document.getElementsByClassName("close")[0];
 
 btn.onclick = function() {
     modal.style.display = "block";
-}
+};
 
 span.onclick = function() {
     modal.style.display = "none";
-}
+};
 
 window.onclick = function(event) {
     if (event.target === modal) {
         modal.style.display = "none";
     }
-}
+};
 
 function addFriend(){
-    list=document.getElementById("friend-group");
-    len=list.getElementsByTagName("li").length;
-    newF=document.createElement("li");
+    let list=document.getElementById("friend-group");
+    let len=list.getElementsByTagName("li").length;
+    let newF=document.createElement("li");
     newF.setAttribute("class","list-group-item");
     newF.setAttribute("id",""+(len+1));
-    friendText=document.createTextNode("Friend: "+(len+1));
+    let friendText=document.createTextNode("Friend: "+(len+1));
     newF.appendChild(friendText);
     list.appendChild(newF);
 }
