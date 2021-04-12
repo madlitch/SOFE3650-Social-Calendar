@@ -1,10 +1,9 @@
-from fastapi import FastAPI, Depends, status, Request
+from fastapi import FastAPI, Depends, status
 from fastapi.security import OAuth2PasswordRequestForm
 from database import database
 from models import *
 from typing import List
 
-import time
 import auth
 import methods
 import exceptions
@@ -40,7 +39,7 @@ async def login_for_access_token(form_data: OAuth2PasswordRequestForm = Depends(
     return token
 
 
-@app.post("/v1/users/create", response_model=User, status_code=status.HTTP_201_CREATED)
+@app.post("/v1/users/create", response_model=User)
 async def create_user(user: UserIn):
     return await methods.create_user(user)
 
@@ -55,7 +54,7 @@ async def get_friends(current_user: User = Depends(auth.get_current_active_user)
     return await methods.get_friends(current_user)
 
 
-@app.post("/v1/friends/create/", status_code=status.HTTP_201_CREATED)
+@app.post("/v1/friends/create/")
 async def create_friend_relationship(friend: NewFriend, user: User = Depends(auth.get_current_active_user)):
     return await methods.create_friend_relationship(friend, user)
 
@@ -75,7 +74,7 @@ async def get_public_events(user: User = Depends(auth.get_current_active_user)):
     return await methods.get_friends_events(user)
 
 
-@app.post("/v1/events/create/", status_code=status.HTTP_201_CREATED, response_model=Event)
+@app.post("/v1/events/create/",  response_model=Event)
 async def create_event(event: Event, user: User = Depends(auth.get_current_active_user)):
     return await methods.create_event(event, user)
 
