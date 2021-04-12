@@ -5,6 +5,10 @@ const $ = require('jquery');
 
 
 $(document).ready(function() {
+    let friendModal = document.getElementById('friend-modal');
+    let eventModal = document.getElementById('event-modal');
+    let registerModal = document.getElementById('register-modal');
+
     $('#current-user-btn').on('click', async () => {
         getCurrentUser()
     });
@@ -15,11 +19,19 @@ $(document).ready(function() {
     });
 
     $('#friends-btn').on('click', async () => {
-        getFriends()
+
+    });
+
+    $('#friend-btn').on('click', async () => {
+        friendModal.style.display = 'block';
+    });
+
+    $('#close-friend-modal-btn').on('click', async () =>{
+        friendModal.style.display = 'none';
     });
 
     $('#add-friend-btn').on('click', async () => {
-        let form = document.getElementById('new-user-form');
+        let form = document.getElementById('add-friend-form');
         addFriend(form);
     });
 
@@ -39,6 +51,23 @@ $(document).ready(function() {
     $('#add-event-btn').on('click', async () =>{
         let form = document.getElementById('add-event-form');
         createEvent(form);
-    })
+    });
+
+    $('#event-btn').on('click', async () =>{
+        eventModal.style.display = 'block';
+    });
+
+    $('#close-event-modal-btn').on('click', async () =>{
+        eventModal.style.display = 'none';
+    });
+
+    $('#create-user-btn').on('click', async () =>{
+        registerModal.style.display = 'block';
+    });
+
+    $('#close-register-modal-btn').on('click', async () =>{
+        registerModal.style.display = 'none';
+    });
+
 });
 
