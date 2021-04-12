@@ -10,12 +10,14 @@ function next() {
     currentYear = (currentMonth === 11) ? currentYear + 1 : currentYear;
     currentMonth = (currentMonth + 1) % 12;
     showCalendar(currentMonth, currentYear);
+    refreshEvents();
 }
 
 function previous() {
     currentYear = (currentMonth === 0) ? currentYear - 1 : currentYear;
     currentMonth = (currentMonth === 0) ? 11 : currentMonth - 1;
     showCalendar(currentMonth, currentYear);
+    refreshEvents();
 }
 
 function showCalendar(month, year) {
@@ -81,11 +83,12 @@ function listFriend(username, name) {
 }
 
 function addEvent(evTitle, evDate)  {
+    let evMonth=(evDate.substring(5,7))-1;
     let date=evDate.substring(0,4)+""+months[(evDate.substring(5,7))-1]+""+evDate.substring(8,10);
-    let modDay=document.getElementById(date);
-    modDay.innerHTML = evTitle;
-    console.log(date);
-    console.log(evTitle);
+    if (evMonth===currentMonth){
+        let modDay=document.getElementById(date);
+        modDay.innerHTML = evTitle;
+    }
 }
 
 function login() {
@@ -99,6 +102,10 @@ function login() {
     } else {
         x.style.display = 'block';
     }
+    currentMonth=today.getMonth();
+    currentYear=today.getFullYear();
+    showCalendar(currentMonth, currentYear);
+    refreshEvents();
 }
 
 function logout() {
@@ -114,7 +121,9 @@ function logout() {
 }
 
 function refreshEvents() {
-
+    getPublicEvents();
+    getFriendsEvents();
+    getPrivateEvents();
 }
 
 function sleep(ms) {

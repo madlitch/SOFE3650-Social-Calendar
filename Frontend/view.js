@@ -18,8 +18,16 @@ $(document).ready(function() {
         loginUser(form);
     });
 
-    $('#friends-btn').on('click', async () => {
+    $('#logout-btn').on('click', async () => {
+        logout();
+    });
 
+    $('#previous').on('click', async () => {
+        previous();
+    });
+
+    $('#next').on('click', async () => {
+        next();
     });
 
     $('#friend-btn').on('click', async () => {
@@ -36,8 +44,7 @@ $(document).ready(function() {
     });
 
     $('#events-btn').on('click', async () => {
-        getPublicEvents();
-        getFriendsEvents();
+        refreshEvents();
     });
 
     $('#new-user-btn').on('click', async () => {
