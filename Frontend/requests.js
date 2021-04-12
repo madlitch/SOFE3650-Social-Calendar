@@ -44,7 +44,6 @@ function loginUser(form) {
     let data = new FormData(form);
     httpPost(url, "/token", false, data, async function (result) {
         let response = JSON.parse(result.response);
-        console.log(response);
         if (result.status === 200) {
             token = response["access_token"];
             getCurrentUser();

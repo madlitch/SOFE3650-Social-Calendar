@@ -150,11 +150,10 @@ body {
     border-radius: 5px;
 }
 
-#date-control .btn-outline-primary {
-    margin: auto;
-    padding: 10px;
-    background-color: ghostwhite;
-}
+#date-control .btn-secondary {
+     margin: auto;
+     padding: 10px;
+ }
 
 #date-control {
     padding-top: 5px;
