@@ -90,7 +90,7 @@ class Event(BaseModel):
     creator: uuid.UUID = None
     visibility: event_visibility = "private"
     venue: Optional[str] = None
-    time: Optional[datetime.datetime]
+    time: datetime.datetime
 
 
 class EventOut(BaseModel):
@@ -99,4 +99,4 @@ class EventOut(BaseModel):
     creator: uuid.UUID = None
     visibility: event_visibility = "private"
     venue: Optional[str] = None
-    time: Optional[datetime.datetime]
+    time: datetime.datetime

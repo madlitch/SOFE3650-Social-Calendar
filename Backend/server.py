@@ -58,17 +58,12 @@ async def create_friend_relationship(friend: NewFriend, user: User = Depends(aut
     return await methods.create_friend_relationship(friend, user)
 
 
-@app.post("/v1/friends/update/")
-async def update_friend_relationship(friend: Friend, user: User = Depends(auth.get_current_active_user)):
-    return await methods.update_friend_relationship(friend, user)
-
-
 @app.post("/v1/events/create/",  response_model=Event)
 async def create_event(event: Event, user: User = Depends(auth.get_current_active_user)):
     return await methods.create_event(event, user)
 
 
-@app.get("/v1/events/public")
+@app.get("/v1/events/public", response_model=List[EventOut])
 async def get_public_events(user: User = Depends(auth.get_current_active_user)):
     return await methods.get_public_events()
 
@@ -78,7 +73,7 @@ async def get_friends_events(user: User = Depends(auth.get_current_active_user))
     return await methods.get_friends_events(user)
 
 
-@app.get("/v1/events/private")
+@app.get("/v1/events/private", response_model=List[EventOut])
 async def get_private_events(user: User = Depends(auth.get_current_active_user)):
     return await methods.get_private_events(user)
 

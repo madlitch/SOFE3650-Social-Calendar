@@ -1,6 +1,6 @@
 from database import database
 from models import *
-from sqlalchemy import or_
+from sqlalchemy import or_, and_
 from sqlalchemy.sql import select
 from exceptions import *
 import auth
@@ -109,7 +109,7 @@ async def create_event(event: Event, user: User):
 
 
 async def get_public_events():
-    query = select([tables.users_events.join(tables.events)])\
+    query = select([tables.events])\
         .where(tables.events.c.visibility == event_visibility.public)
     result = await database.fetch_all(query)
     return result
@@ -117,14 +117,14 @@ async def get_public_events():
 
 async def get_friends_events(user: User):  # very fucking slow
     query = select([tables.events.join(tables.friends, tables.events.c.creator == tables.friends.c.user_id_1)])\
-        .where(or_(tables.friends.c.user_id_1 == user.user_id, tables.friends.c.user_id_2 == user.user_id)) \
-        .where(tables.users.c.user_id != user.user_id)\
-        .where(tables.events.c.visibility != event_visibility.private)\
+        .where(and_(or_(tables.friends.c.user_id_1 == user.user_id, tables.friends.c.user_id_2 == user.user_id),
+                    or_(tables.friends.c.user_id_1 == tables.events.c.creator, tables.friends.c.user_id_2 == tables.events.c.creator))) \
+        .where(tables.events.c.visibility == event_visibility.friends)\
         .union(
         select([tables.events.join(tables.friends, tables.events.c.creator == tables.friends.c.user_id_2)])
-        .where(or_(tables.friends.c.user_id_1 == user.user_id, tables.friends.c.user_id_2 == user.user_id))
-        .where(tables.users.c.user_id != user.user_id)
-        .where(tables.events.c.visibility != event_visibility.private))
+        .where(and_(or_(tables.friends.c.user_id_1 == user.user_id, tables.friends.c.user_id_2 == user.user_id),
+                    or_(tables.friends.c.user_id_1 == tables.events.c.creator, tables.friends.c.user_id_2 == tables.events.c.creator)))
+        .where(tables.events.c.visibility == event_visibility.friends))
     return await database.fetch_all(query)
 
 
