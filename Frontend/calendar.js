@@ -97,6 +97,7 @@ function login() {
 }
 
 function logout() {
+    document.getElementById("friend-group").innerHTML = "";
     const u = document.getElementById('login-form');
     const y = document.getElementById('login-btn');
     const j = document.getElementById('loginScreen');

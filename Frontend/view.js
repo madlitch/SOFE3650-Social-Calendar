@@ -36,7 +36,7 @@ $(document).ready(function() {
     });
 
     $('#events-btn').on('click', async () => {
-        getUsersEvents()
+        getPublicEvents()
     });
 
     $('#new-user-btn').on('click', async () => {

@@ -12,12 +12,11 @@ body {
 }
 
 #top-bar {
-    height: 10vh;
     background-color: #EAFDF8
 }
 
 #user-bar {
-    height: 10vh;
+    /*height: 10vh;*/
     border-bottom: 3px solid black;
 }
 
@@ -27,11 +26,11 @@ body {
 }
 
 #calendar-body {
-    height: 90vh;
+    height: 100%;
 }
 
 #calendar-body tr {
-    height: 10vh;
+    height: 11vh;
     border-bottom-style: solid;
 }
 

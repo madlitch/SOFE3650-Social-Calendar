@@ -74,7 +74,7 @@ async def get_public_events(user: User = Depends(auth.get_current_active_user)):
     return await methods.get_public_events()
 
 
-@app.get("/v1/events/friends")
+@app.get("/v1/events/friends", response_model=List[EventOut])
 async def get_friends_events(user: User = Depends(auth.get_current_active_user)):
     return await methods.get_friends_events(user)
 

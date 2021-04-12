@@ -87,6 +87,7 @@ function getCurrentUser() {
 function getFriends() {
     httpGet(url, "/v1/friends", true,function (result) {
         let response = JSON.parse(result.response);
+        console.log(response);
         response.forEach(friend => {
             listFriend(friend.username, friend.first_name + " " + friend.last_name, friend.id);
         });
@@ -107,8 +108,8 @@ function addFriend(form) {
 
 // -------------------- Event Functions --------------------
 
-function getUsersEvents() {
-    httpGet(url, "/v1/events", true,function (result) {
+function getPublicEvents() {
+    httpGet(url, "/v1/events/public", true,function (result) {
         let response = JSON.parse(result.response);
         console.log(response)
     });
@@ -121,13 +122,24 @@ function getFriendsEvents() {
     });
 }
 
+function getPrivateEvents() {
+    httpGet(url, "/v1/events/private", true,function (result) {
+        let response = JSON.parse(result.response);
+        console.log(response)
+    });
+}
+
 function createEvent(form) {
     let data = new FormData(form);
     let date = new Date(data.get('time').toString());
     data.set('time', date.toISOString());
-    httpPost(url, "/v1/events/create", true, stringifyForm(data), function (result) {
+    httpPost(url, "/v1/events/create", true, stringifyForm(data), async function (result) {
         let response = JSON.parse(result.response);
-        console.log(response);
+        if (result.status === 200) {
+            await showMessage(false, "Success!");
+        } else {
+            await showMessage(true, response.detail);
+        }
     });
 }
 
