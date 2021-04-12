@@ -5,8 +5,6 @@
     <title>Social Calendar</title>
     <link href="bootstrap.min.css" rel="stylesheet">
     <link href="main.css" rel="stylesheet">
-    <script type="text/javascript" src="view.js"></script>
-    <script type="text/javascript" src="requests.js"></script>
 </head>
 <!--PROJECT TODO
 Populating events on login
@@ -18,77 +16,97 @@ Viewing friends' events-->
 Clean up/unify CSS
 Minimize bootstrap overrides
 -->
-<body>
-
+<body onload="showCalendar(currentMonth, currentYear);">
 <div class="jumbotron-fluid" id="loginScreen">
-    <nav class="navbar navbar-light bg-light">
-        <span class="navbar-brand mb-0 h1" id="login-status">Awaiting login...</span>
-    </nav>
-    <h1 class="display-4 text-center">Welcome to your new Social Calendar!</h1>
-    <form id="login-form" action="javascript:void(0);">
-        <div class="form-group">
-            <label for="username">Username</label>
-            <input type="text" class="form-control" id="username" name="username" placeholder="Enter your username">
-        </div>
-        <div class="form-group">
-            <label for="password">Password</label>
-            <input type="password" class="form-control" id="password" name="password" placeholder="Password">
-        </div>
+    <div style="margin-top: 50px">
+        <h1 class="display-4 text-center">Welcome to your new Social Calendar!</h1>
+        <form id="login-form" action="javascript:void(0);">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" class="form-control" id="username" name="username" placeholder="Enter your username">
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+            </div>
+            <div class="center-wrapper">
+                <button class="btn btn-primary center-wrapper" id="login-btn">Login</button>
+            </div>
+        </form>
+        <hr class="my-3">
         <div class="center-wrapper">
-            <button class="btn btn-primary" id="login-btn">Login</button>
+            <p>Not registered yet?</p>
+            <button type="button" class="btn btn-info" id="create-user-btn" onclick="">Create Account</button>
         </div>
-    </form>
-    <hr class="my-3">
-    <div class="center-wrapper">
-        <p>Not registered yet?</p>
-        <button type="button" class="btn btn-info" id="userAdd" onclick="registerModal()">Create Account</button>
     </div>
 </div>
 
-<div class="modal2" id="userModal" style="padding: 20px">
-    <div class="modal-content2">
-        <span class="close2">&times;</span>
-        <h2>New User</h2>
-        <form id="new-user-form" action="javascript:void(0);">
-            <label>
-                Username
-                <input class="form-control" type="text" name="username">
-            </label>
-            <label>
-                First Name
-                <input class="form-control" type="text" name="first_name">
-            </label>
-            <label>
-                Last Name
-                <input class="form-control" type="text" name="last_name">
-            </label>
-            <label>
-                Password
-                <input class="form-control" type="password" name="password">
-            </label>
-            <button class="btn btn-primary" id="new-user-btn">Sign Up</button>
-        </form>
+<div class="modal" id="register-modal" style="padding: 20px">
+    <div class="modal-content" style="">
+        <div>
+            <span id="close-register-modal-btn">
+                <svg class="svg-hover" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z"/></svg>
+            </span>
+        </div>
+        <div class="display-4 text-center">
+            <h2>New User</h2>
+        </div>
+        <div>
+            <form id="new-user-form" action="javascript:void(0);">
+                <div class="center-wrapper">
+                    <div>
+                        <label class="input-width">
+                            Username
+                            <input class="form-control" type="text" name="username">
+                        </label>
+                    </div>
+                    <div>
+                        <label class="input-width">
+                            First Name
+                            <input class="form-control" type="text" name="first_name">
+                        </label>
+                    </div>
+                    <div>
+                        <label class="input-width">
+                            Last Name
+                            <input class="form-control" type="text" name="last_name">
+                        </label>
+                    </div>
+                    <div>
+                        <label class="input-width">
+                            Password
+                            <input class="form-control" type="password" name="password">
+                        </label>
+                    </div>
+                </div>
+            </form>
+            <div class="center-wrapper" style="margin-top: 10px;">
+                <button class="btn btn-primary" id="new-user-btn">Sign Up</button>
+            </div>
+        </div>
+
     </div>
 </div>
 
 <div id="hideIt">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-sm-10">
+            <div class="col-sm-9">
                 <div class="card" id="top-bar">
                     <div class="card-body">
                         <div class="btn-group float-left" >
-                            <button type="button" class="btn btn-info" id="eventAdd">Add Event</button>
+                            <button type="button" class="btn btn-info" id="event-btn">Add Event</button>
                             <button type="button" class="btn btn-info">Modify Event</button>
                         </div>
                         <div class="btn-group float-right">
                             <button type="button" class="btn btn-secondary">&#8635; Reload Events</button>
-                            <button type="button" class="btn btn-outline-primary" id="add-friend" onclick="addFriend()">Add Friend</button>
+                            <button type="button" class="btn btn-outline-primary" id="friend-btn" onclick="">Add Friend</button>
+                            <button type="button" class="btn btn-outline-primary" id="friends-btn" onclick="">Get Friend</button>
                         </div>
                     </div>
                 </div>
                 <div class="card">
-                    <div class="form-inline">
+                    <div class="form-inline" style="padding: 5px">
                         <button class="btn btn-outline-primary col-sm-6" id="previous" onclick="previous()">Previous</button>
                         <button class="btn btn-outline-primary col-sm-6" id="next" onclick="next()">Next</button>
                     </div>
@@ -112,55 +130,94 @@ Minimize bootstrap overrides
                     </table>
                 </div>
             </div>
-            <div class="col-sm-2">
+            <div class="col-sm-3">
                 <div class="card" id="user-info">
                     <div class="card-header" id="user-bar">
-                        <h3 class="card-title">Tony User</h3>
-                        <h6 class="card-subtitle mb-2 text-muted">tonyuser</h6>
+                        <h3 id="current-user-name" class="card-title"></h3>
+                        <h6 id="current-user-username" class="card-subtitle mb-2 text-muted"></h6>
                     </div>
                     <ul class="list-group list-group-flush" id="friend-group">
                     </ul>
                     <div class="card-body" id="user-control">
-                        <a class="card-link" onclick="loginSo()">Logout!</a>
+                        <a class="card-link" onclick="logout()">Logout!</a>
                         <a href="testing.html" class="card-link">Back to test!</a>
                     </div>
                 </div>
-        </div>
+            </div>
         </div>
     </div>
-
-    <div class="modal" id="eventModal" style="padding: 20px">
+    <div class="modal jumbotron-fluid" id="event-modal" style="padding: 20px">
         <div class="modal-content">
-            <span class="close">&times;</span>
-            <h3>Add Event</h3>
-            <form id="add-event-form" action="javascript:void(0);">
-                <label>
-                    Event Name
-                    <input class="form-control" type="text" name="name">
-                </label>
-                <label>
-                    Location
-                    <input class="form-control" type="text" name="venue">
-                </label>
-                <label>
-                    Visibility
-                    <select class="form-control" type="text" list="visibility" name="visibility">
-                        <option value="public">Public</option>
-                        <option value="friends">Friends</option>
-                        <option value="private">Private</option>
-                    </select>
-                </label>
-                <label>
-                    Date
-                    <input class="form-control" type="date" name="time">
-                </label>
-                <button class="btn btn-primary" id="add-event-btn">Add Event</button>
-            </form>
+            <div>
+                <span id="close-event-modal-btn">
+                    <svg class="svg-hover" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z"/></svg>
+                </span>
+            </div>
+            <div class="display-4 text-center">
+                <h3>Add Event</h3>
+            </div>
+            <div>
+                <form id="add-event-form" action="javascript:void(0);">
+                    <div class="center-wrapper">
+                        <label>
+                            Event Name
+                            <input class="form-control" type="text" name="name">
+                        </label>
+                        <label>
+                            Location
+                            <input class="form-control" type="text" name="venue">
+                        </label>
+                        <label>
+                            Visibility
+                            <select class="form-control" type="text" name="visibility">
+                                <option value="public">Public</option>
+                                <option value="friends">Friends</option>
+                                <option value="private">Private</option>
+                            </select>
+                        </label>
+                        <label>
+                            Date
+                            <input class="form-control" type="date" name="time">
+                        </label>
+                    </div>
+                    <div class="center-wrapper">
+                        <button class="btn btn-primary" id="add-event-btn">Add Event</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="modal jumbotron-fluid" id="friend-modal" style="padding: 20px">
+        <div class="modal-content">
+            <div>
+                <span id="close-friend-modal-btn">
+                    <svg class="svg-hover" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z"/></svg>
+                </span>
+            </div>
+            <div class="display-4 text-center">
+                <h3>Add Friend</h3>
+            </div>
+            <div>
+                <form id="add-friend-form" action="javascript:void(0);">
+                    <div class="center-wrapper">
+                        <label>
+                            Friend Username
+                            <input class="form-control" type="text" name="username">
+                        </label>
+                    </div>
+                    <div class="center-wrapper">
+                        <button class="btn btn-primary" id="add-friend-btn">Add Friend</button>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
 </div>
-
-<script src="calendar.js"></script>
-
+<div id="message-box">
+    <h5 id="message" style="margin-top: 5px"></h5>
+</div>
+<script type="text/javascript" src="view.js"></script>
+<script type="text/javascript" src="requests.js"></script>
+<script type="text/javascript" src="calendar.js"></script>
 </body>
 </html>

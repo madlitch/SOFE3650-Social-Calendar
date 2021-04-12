@@ -34,10 +34,6 @@ function httpPost(url, endpoint, locked, data, callback) {
     };
 }
 
-/* stringifyForm
-turns form data into api url friendly string
- */
-
 function stringifyForm(data) {
     return JSON.stringify(Object.fromEntries(data.entries()));
 }
@@ -46,34 +42,43 @@ function stringifyForm(data) {
 
 function loginUser(form) {
     let data = new FormData(form);
-    httpPost(url, "/token", false, data, function (result) {
+    httpPost(url, "/token", false, data, async function (result) {
         let response = JSON.parse(result.response);
+        console.log(response);
         if (result.status === 200) {
             token = response["access_token"];
-            console.log(result.status);
-             hideCal();
-            // let y=document.getElementById("login-btn");
-            // y.style.display="none";
-            // console.log(y);
-        }
-        else{
-            noLogin();
+            getCurrentUser();
+            getFriends();
+            login();
+            await showMessage(false, "Successful Login");
+        } else {
+            if (typeof response.detail === 'object') {
+                await showMessage(true, response.detail[0].msg);
+            } else {
+                await showMessage(true, response.detail);
+            }
         }
     });
 }
 
 function createUser(form) {
     let data = new FormData(form);
-    httpPost(url, "/v1/users/create", false, stringifyForm(data), function (result) {
+    httpPost(url, "/v1/users/create", false, stringifyForm(data), async function (result) {
         let response = JSON.parse(result.response);
-        console.log(response);
+        if (result.status === 200) {
+            await showMessage(false, "Success!");
+        } else {
+            await showMessage(true, response.detail);
+        }
     });
 }
 
 function getCurrentUser() {
     httpGet(url, "/v1/users/me", true,function (result) {
         let response = JSON.parse(result.response);
-        console.log(response)
+        console.log(response);
+        document.getElementById('current-user-name').innerText = response.first_name + " " + response.last_name;
+        document.getElementById('current-user-username').innerText = response.username;
     });
 }
 
@@ -82,23 +87,21 @@ function getCurrentUser() {
 function getFriends() {
     httpGet(url, "/v1/friends", true,function (result) {
         let response = JSON.parse(result.response);
-        console.log(response)
+        response.forEach(friend => {
+            listFriend(friend.username, friend.first_name + " " + friend.last_name, friend.id);
+        });
     });
 }
 
 function addFriend(form) {
     let data = new FormData(form);
-    httpPost(url, "/v1/friends/create", false, stringifyForm(data), function (result) {
+    httpPost(url, "/v1/friends/create", true, stringifyForm(data), async function (result) {
         let response = JSON.parse(result.response);
-        console.log(response);
-    });
-}
-
-function updateFriendRelationship(form) { // This "form" should not be visible to the user
-    let data = new FormData(form);
-    httpPost(url, "/v1/friends/update", false, stringifyForm(data), function (result) {
-        let response = JSON.parse(result.response);
-        console.log(response);
+        if (result.status === 200) {
+            await showMessage(false, "Success!");
+        } else {
+            await showMessage(true, response.detail);
+        }
     });
 }
 
@@ -139,14 +142,6 @@ function joinEvent(form) {
 function updateEventUsers(form) {
     let data = new FormData(form);
     httpPost(url, "/v1/events/update/users", true, stringifyForm(data), function (result) {
-        let response = JSON.parse(result.response);
-        console.log(response);
-    });
-}
-
-function updateEventRelationship(form) {
-    let data = new FormData(form);
-    httpPost(url, "/v1/events/update/relationship", true, stringifyForm(data), function (result) {
         let response = JSON.parse(result.response);
         console.log(response);
     });

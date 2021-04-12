@@ -2,12 +2,12 @@ body {
     height: 100vh;
 }
 
-.col-sm-10 {
-    background-color: #191919;
+.col-sm-9 {
+    /*background-color: #191919;*/
     height: 100vh;
 }
 
-.col-sm-2 {
+.col-sm-3 {
     background-color: #EAFDF8;
 }
 
@@ -77,56 +77,8 @@ body {
     margin: auto;
     padding: 20px;
     border: 1px solid #888;
-    width: 80%;
-}
-
-.close {
-    color: #aaaaaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-    color: #000;
-    text-decoration: none;
-    cursor: pointer;
-}
-.modal2 {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    padding-top: 100px; /* Location of the box */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-}
-
-.modal-content2 {
-    background-color: #fefefe;
-    margin: auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-}
-
-.close2 {
-    color: #aaaaaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
-
-.close2:hover,
-.close2:focus {
-    color: #000;
-    text-decoration: none;
-    cursor: pointer;
+    width: 100%;
+    max-width: 500px;
 }
 
 #login-form {
@@ -144,14 +96,49 @@ body {
 }
 
 .btn-info {
-    background: #57737A !important;
-    border-color: #57737A !important;
+    background: #57737A;
+    border-color: #57737A;
 }
 
 .bg-info {
-    background: #B09398 !important;
+    background: #B09398;
 }
 
 #hideIt{
-    display:none;
+    display: none;
+}
+
+.svg-hover {
+    fill: black;
+    -webkit-transition: fill 0.2s;
+}
+
+.svg-hover:hover {
+    fill: red;
+    -webkit-transition: fill 0.2s;
+    cursor: pointer;
+}
+
+.input-width {
+    width: 100%;
+    max-width: 350px;
+}
+
+#message-box {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    z-index: 10;
+    bottom: -100px;
+    left: 0;
+    right: 0;
+    -webkit-transition: bottom 0.4s;
+}
+
+#message {
+    padding: 10px;
+    background-color: green;
+    border-radius: 5px;
 }
