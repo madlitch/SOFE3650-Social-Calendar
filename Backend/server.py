@@ -1,4 +1,4 @@
-from fastapi import FastAPI, Depends, status
+from fastapi import FastAPI, Depends
 from fastapi.security import OAuth2PasswordRequestForm
 from database import database
 from models import *
