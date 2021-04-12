@@ -16,12 +16,14 @@ import json
 
 async def create_user(user: UserIn):
     user.username = user.username.lower()
-    if len(user.username) < 3:
+    if len(user.username) < 3 or len(user.username) > 20:
         raise API_406_USERNAME_EXCEPTION
     query = tables.users.select().where(tables.users.c.username == user.username)
     existing_user = await database.execute(query)
     if existing_user:
         raise API_409_USERNAME_CONFLICT_EXCEPTION
+    elif len(user.password) < 4:
+        raise API_406_PASSWORD_EXCEPTION
     else:
         salt = auth.gen_salt()
         query = tables.users.insert().values(username=user.username,
