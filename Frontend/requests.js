@@ -51,6 +51,13 @@ function loginUser(form) {
         if (result.status === 200) {
             token = response["access_token"];
             console.log(result.status);
+             hideCal();
+            // let y=document.getElementById("login-btn");
+            // y.style.display="none";
+            // console.log(y);
+        }
+        else{
+            noLogin();
         }
     });
 }

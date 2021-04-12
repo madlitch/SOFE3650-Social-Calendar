@@ -89,6 +89,24 @@ window.onclick = function(event) {
     }
 };
 
+let modal2 = document.getElementById("userModal");
+let btn2=document.getElementById("userAdd");
+let span2=document.getElementsByClassName("close2")[0];
+
+btn2.onclick = function() {
+    modal2.style.display = "block";
+};
+
+span2.onclick = function() {
+    modal2.style.display = "none";
+};
+
+window.onclick = function(event) {
+    if (event.target === modal2) {
+        modal2.style.display = "none";
+    }
+};
+
 function addFriend(){
     let list=document.getElementById("friend-group");
     let len=list.getElementsByTagName("li").length;
@@ -98,4 +116,32 @@ function addFriend(){
     let friendText=document.createTextNode("Friend: "+(len+1));
     newF.appendChild(friendText);
     list.appendChild(newF);
+}
+function hideCal() {
+    let y=document.getElementById("login-btn");
+    let j=document.getElementById("loginScreen");
+    let x = document.getElementById("hideIt");
+    y.style.display="none";
+    j.style.display="none";
+    if (x.style.display === "block") {
+        x.style.display = "none";
+    } else {
+        x.style.display = "block";
+    }
+}
+function loginSo() {
+    let u=document.getElementById("login-form");
+    let y=document.getElementById("login-btn");
+    let j=document.getElementById("loginScreen");
+    let x = document.getElementById("hideIt");
+    let p=document.getElementById("error1");
+    x.style.display = "none";
+    y.style.display ="block";
+    j.style.display="block";
+    p.style.display="none";
+    u.reset();
+}
+function noLogin(){
+    let y=document.getElementById("error1");
+    y.style.display="block";
 }
