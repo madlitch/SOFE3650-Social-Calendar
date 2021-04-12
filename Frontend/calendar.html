@@ -89,7 +89,7 @@ Minimize bootstrap overrides
 </div>
 
 <div id="hideIt">
-    <div class="container-fluid">
+    <div class="container-fluid" id="main-body">
         <div class="row">
             <div class="col-sm-9">
                 <div class="card" id="top-bar">
@@ -104,13 +104,14 @@ Minimize bootstrap overrides
                         </div>
                     </div>
                 </div>
-                <div class="card">
-                    <div class="form-inline" style="padding: 5px">
-                        <button class="btn btn-outline-primary col-sm-6" id="previous" onclick="previous()">Previous</button>
-                        <button class="btn btn-outline-primary col-sm-6" id="next" onclick="next()">Next</button>
+                <div class="card" id="calendar-card">
+                    <div class="form-inline" id="date-control" style="padding: 5px">
+                        <button class="btn btn-outline-primary col-sm-4" id="previous" onclick="previous()">Previous</button>
+                        <h2 class="col-sm-2" id="month-and-year"></h2>
+                        <button class="btn btn-outline-primary col-sm-4" id="next" onclick="next()">Next</button>
                     </div>
-                    <h3 class="card-header" id="month-and-year"></h3>
-                    <table class="table">
+
+                    <table class="table" id="calendar-table">
                         <thead>
                         <tr>
                             <th>Sun</th>

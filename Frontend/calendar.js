@@ -51,7 +51,6 @@ function showCalendar(month, year) {
             } else {
                 actualDate += 1;
                 cell = document.createElement('td');
-
                 cell.setAttribute('id', `${currentYear}${months[currentMonth]}${(`00${actualDate}`).slice(-2)}`);
                 cellText = document.createTextNode(date);
                 if (date === today.getDate() && currentMonth === today.getMonth() && currentYear === today.getFullYear()) {

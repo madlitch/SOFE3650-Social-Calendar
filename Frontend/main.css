@@ -7,16 +7,24 @@ body {
     height: 100vh;
 }
 
-.col-sm-3 {
+.col-sm-3, #calendar-card {
     background-color: #EAFDF8;
 }
 
+#main-body {
+    background-color: rgba(0,0,0,.03);
+}
+
+#calendar-table {
+    background-color: ghostwhite;
+}
+
 #top-bar {
-    background-color: #EAFDF8
+    background-color: #EAFDF8;
+    margin-top: 1vh;
 }
 
 #user-bar {
-    /*height: 10vh;*/
     border-bottom: 3px solid black;
 }
 
@@ -30,7 +38,7 @@ body {
 }
 
 #calendar-body tr {
-    height: 11vh;
+    height: 12vh;
     border-bottom-style: solid;
 }
 
@@ -140,4 +148,15 @@ body {
     padding: 10px;
     background-color: green;
     border-radius: 5px;
+}
+
+#date-control .btn-outline-primary {
+    margin: auto;
+    padding: 10px;
+    background-color: ghostwhite;
+}
+
+#date-control {
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
