@@ -129,7 +129,14 @@ body {
     cursor: pointer;
 }
 
+#login-form {
+    width: 50vw;
+    margin: 0 auto;
+}
 
+.center-wrapper {
+    text-align: center;
+}
 
 #user-info {
     margin-top: 1vh;
@@ -144,6 +151,7 @@ body {
 .bg-info {
     background: #B09398 !important;
 }
+
 #hideIt{
     display:none;
 }

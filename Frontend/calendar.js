@@ -89,6 +89,10 @@ window.onclick = function(event) {
     }
 };
 
+document.getElementById("userAdd").onclick=function(){
+    document.getElementById("registerModal").style.display="block";
+}
+
 let modal2 = document.getElementById("userModal");
 let btn2=document.getElementById("userAdd");
 let span2=document.getElementsByClassName("close2")[0];
@@ -128,20 +132,18 @@ function hideCal() {
     } else {
         x.style.display = "block";
     }
+    document.getElementById("login-status").innerHTML=("Awaiting login...");
 }
 function loginSo() {
     let u=document.getElementById("login-form");
     let y=document.getElementById("login-btn");
     let j=document.getElementById("loginScreen");
     let x = document.getElementById("hideIt");
-    let p=document.getElementById("error1");
     x.style.display = "none";
     y.style.display ="block";
     j.style.display="block";
-    p.style.display="none";
     u.reset();
 }
 function noLogin(){
-    let y=document.getElementById("error1");
-    y.style.display="block";
+    document.getElementById("login-status").innerHTML=("Login failed :(");
 }
