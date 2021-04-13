@@ -129,7 +129,6 @@ function getFriendsEvents() {
 function getPrivateEvents() {
     httpGet(url, "/v1/events/private", true,function (result) {
         let response = JSON.parse(result.response);
-        console.log(response)
         response.forEach(event => {
             addEvent(event.name, event.time, event.venue, event.visibility);
         });

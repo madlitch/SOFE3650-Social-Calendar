@@ -1,6 +1,7 @@
 let today = new Date();
 let currentMonth = today.getMonth();
 let currentYear = today.getFullYear();
+let events = [];
 
 let months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
@@ -88,9 +89,9 @@ function addEvBtn(evTitle, evDate, evVenue, modDay, vis) {
     newBtn.setAttribute('id',`${evDate}${(`000${len}`).slice(-3)}`);
     if (vis==='public'){
         newBtn.setAttribute('class', 'btn btn-dark');
-    }else if(vis==='friends'){
+    } else if(vis==='friends'){
         newBtn.setAttribute('class', 'btn btn-warning');
-    }else{
+    } else{
         newBtn.setAttribute('class', 'btn btn-info');
     }
     const buttonText = document.createTextNode(evTitle + " - " + evVenue);
@@ -99,10 +100,10 @@ function addEvBtn(evTitle, evDate, evVenue, modDay, vis) {
 }
 
 function addEvent(evTitle, evDate, evVenue, vis) {
-    const evMonth=(evDate.substring(5,7))-1;
-    const date=evDate.substring(0,4)+""+months[(evDate.substring(5,7))-1]+""+evDate.substring(8,10);
-    if (evMonth===currentMonth){
-        const modDay=document.getElementById(date);
+    const evMonth = (evDate.substring(5,7))-1;
+    const date = evDate.substring(0,4) + "" + months[(evDate.substring(5,7))-1]+""+evDate.substring(8,10);
+    if (evMonth === currentMonth){
+        const modDay = document.getElementById(date);
         modDay.appendChild(document.createElement("br"));
         addEvBtn(evTitle, date, evVenue, modDay, vis);
     }
