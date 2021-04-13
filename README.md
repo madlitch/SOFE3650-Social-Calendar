@@ -6,7 +6,6 @@ Attempting to organize and plan events with friends is always a hassle especiall
 
 ![Social Calendar Screenshot](/Design/screenshot.png)
 
-
 ## Description
 
 Social Calendar is a full-stack deployment of a Social Calendar desktop application and backend server.
@@ -27,12 +26,11 @@ Installation Steps:
 1. Clone this repository.
 2. Open **backend/constants.py** and fill in the required information (User, Password, Port, Database.)
 3. Open a terminal window in this repository's folder.
-4. Navigate to the 'backend' folder. ( $ cd backend )
-5. Install python requirements via pip ( $ pip install -r requirements.txt )
-6. Once that's done, start the server ( $ uvicorn server:app --reload )
-7. Create a new terminal window in the repository's folder.
-8. Navigate to the 'frontend' folder ( $ cd .. $ cd frontend )
-9. Install npm requirements ($ npm install )
-10. Start the application ( $ npm start )
+4. Navigate to the 'backend' folder.
+5. Install python requirements via pip `$ pip install -r requirements.txt`
+6. Once that's done, start the server `$ uvicorn server:app --reload`
+7. Navigate to the 'frontend' folder
+8. Install npm requirements `$ npm install`
+9. Start the application `$ npm start`
 
 
