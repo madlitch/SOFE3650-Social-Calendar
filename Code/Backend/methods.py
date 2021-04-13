@@ -117,12 +117,7 @@ async def get_friends_events(user: User):  # very fucking slow
     query = select([tables.events])\
         .where(and_(or_(tables.friends.c.user_id_1 == user.user_id, tables.friends.c.user_id_2 == user.user_id),
                     or_(tables.friends.c.user_id_1 == tables.events.c.creator, tables.friends.c.user_id_2 == tables.events.c.creator))) \
-        .where(tables.events.c.visibility == event_visibility.friends)\
-        .union(
-        select([tables.events])
-        .where(and_(or_(tables.friends.c.user_id_1 == user.user_id, tables.friends.c.user_id_2 == user.user_id),
-                    or_(tables.friends.c.user_id_1 == tables.events.c.creator, tables.friends.c.user_id_2 == tables.events.c.creator)))
-        .where(tables.events.c.visibility == event_visibility.friends))
+        .where(tables.events.c.visibility == event_visibility.friends)
     return await database.fetch_all(query)
 
 
