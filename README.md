@@ -6,7 +6,6 @@ Attempting to organize and plan events with friends is always a hassle especiall
 
 ![Social Calendar Screenshot](/Design/screenshot.png)
 
-
 ## Description
 
 Social Calendar is a full-stack deployment of a Social Calendar desktop application and backend server.
