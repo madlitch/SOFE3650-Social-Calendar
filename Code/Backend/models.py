@@ -68,14 +68,7 @@ class FriendOut(BaseModel):
     relationship: friend_relationship
 
 
-# Event/Venue Info ---------------------------------------------------
-
-
-class users_event_relationship(enum.Enum):
-    invited = "invited"
-    attending = "attending"
-    unavailable = "unavailable"
-    admin = "admin"
+# Event ---------------------------------------------------
 
 
 class event_visibility(enum.Enum):
