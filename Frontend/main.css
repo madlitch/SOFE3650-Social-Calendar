@@ -1,5 +1,4 @@
 .col-sm-9 {
-    /*background-color: #191919;*/
     height: 100vh;
 }
 
@@ -43,6 +42,11 @@
     border-right-style: solid;
     border-width: thin;
     width: 14%;
+    max-width: 14vh;
+}
+
+#calendar-body button {
+    max-width: 100%;
 }
 
 #month-and-year {
