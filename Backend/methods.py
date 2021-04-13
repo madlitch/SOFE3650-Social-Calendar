@@ -103,8 +103,6 @@ async def create_event(event: Event, user: User):
     query = tables.events.insert().values(name=event.name, creator=user.user_id, venue=event.venue,
                                           visibility=event.visibility, time=event.time.replace(tzinfo=None))
     event.event_id = await database.execute(query)
-    query = tables.users_events.insert().values(event_id=event.event_id, user_id=user.user_id, relationship='admin')
-    await database.execute(query)
     return {**event.dict(), "creator": user.user_id}
 
 
@@ -129,8 +127,8 @@ async def get_friends_events(user: User):  # very fucking slow
 
 
 async def get_private_events(user: User):
-    query = select([tables.users_events.join(tables.events)])\
-        .where(tables.users_events.c.user_id == user.user_id)\
+    query = select([tables.events])\
+        .where(tables.events.c.creator == user.user_id)\
         .where(tables.events.c.visibility == event_visibility.private)
     return await database.fetch_all(query)
 

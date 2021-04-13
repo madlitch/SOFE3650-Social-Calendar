@@ -32,12 +32,3 @@ events = Table('events', metadata,
                Column('venue', String),
                Column('time', DateTime)
                )
-
-
-users_events = Table('users_events', metadata,
-                     Column('event_id', UUID, ForeignKey('events.event_id'), primary_key=True,
-                            server_default=func.uuid_generate_v1()),
-                     Column('user_id', UUID, ForeignKey('users.user_id'), primary_key=True,
-                            server_default=func.uuid_generate_v1()),
-                     Column('relationship', Enum(models.users_event_relationship))
-                     )

@@ -85,6 +85,7 @@ function getCurrentUser() {
 function getFriends() {
     httpGet(url, "/v1/friends", true,function (result) {
         let response = JSON.parse(result.response);
+        document.getElementById("friend-group").innerHTML = "";
         response.forEach(friend => {
             listFriend(friend.username, friend.first_name + " " + friend.last_name);
         });
@@ -97,6 +98,7 @@ function addFriend(form) {
         let response = JSON.parse(result.response);
         if (result.status === 200) {
             await showMessage(false, "Success!");
+            getFriends();
         } else {
             await showMessage(true, response.detail);
         }
@@ -117,7 +119,7 @@ function getPublicEvents() {
 function getFriendsEvents() {
     httpGet(url, "/v1/events/friends", true,function (result) {
         let response = JSON.parse(result.response);
-        console.log(response)
+        console.log(response);
         response.forEach(event => {
             addEvent(event.name, event.time, event.venue, event.visibility);
         });
