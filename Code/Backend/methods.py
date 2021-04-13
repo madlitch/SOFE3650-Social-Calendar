@@ -67,35 +67,6 @@ async def create_friend_relationship(friend: NewFriend, user: User):
         raise API_404_USER_NOT_FOUND_EXCEPTION
 
 
-async def update_friend_relationship(friend: Friend, user: User):
-    friend_1 = friend.friend_id if friend.friend_id < user.user_id else user.user_id
-    friend_2 = friend.friend_id if friend.friend_id > user.user_id else user.user_id
-    query = select([tables.friends])\
-        .where(tables.friends.c.user_id_1 == friend_1).where(tables.friends.c.user_id_2 == friend_2)
-    relationship = dict(await database.fetch_one(query))
-    if relationship['action_user_id'] == user.user_id and \
-            relationship['relationship'] == models.friend_relationship.pending:
-        raise API_401_FRIEND_REQUEST_EXCEPTION
-    else:
-        query = tables.friends.update()\
-            .where(tables.friends.c.user_id_1 == friend_1).where(tables.friends.c.user_id_2 == friend_2) \
-            .values(relationship=friend.relationship, action_user_id=user.user_id)
-        await database.execute(query)
-        return {"detail": "friend relationship updated"}
-
-
-async def check_friend_relationship(friend_id: uuid.UUID, user_id: uuid.UUID):
-    friend_1 = friend_id if friend_id < user_id else user_id
-    friend_2 = friend_id if friend_id > user_id else user_id
-    query = select([tables.friends]).where(tables.friends.c.user_id_1 == friend_1) \
-        .where(tables.friends.c.user_id_2 == friend_2)
-    relationship = await database.fetch_one(query)
-    if relationship['relationship'] == models.friend_relationship.friends:
-        return True
-    else:
-        raise API_404_RELATIONSHIP_EXCEPTION
-
-
 # Events ---------------------------------------------------
 
 
