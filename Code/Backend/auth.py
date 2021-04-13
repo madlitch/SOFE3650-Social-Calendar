@@ -35,7 +35,7 @@ def gen_salt():
 
 
 async def get_user(username: str):
-    query = users.select().where(users.c.username == username)
+    query = users.select().where(users.c.username == username.lower())
     user = await database.fetch_one(query)
     if user:
         return UserAuthIn(**user)
