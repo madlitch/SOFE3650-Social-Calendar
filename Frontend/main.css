@@ -1,8 +1,10 @@
-.col-sm-9 {
-    height: 100vh;
+/* Colours */
+
+#hideIt {
+    background-color: white;
 }
 
-.col-sm-3, #calendar-card {
+.col-sm-3, #calendar-card, body, #top-bar {
     background-color: #EAFDF8;
 }
 
@@ -14,22 +16,76 @@
     background-color: ghostwhite;
 }
 
+.currentDay {
+    background: #F98948;
+}
+
+.btn-info {
+    background: #57737A;
+    border-color: #57737A;
+}
+
+.bg-info {
+    background: #B09398;
+}
+
+/* End Colours
+Dimensions */
+
+.col-sm-9 {
+    height: 100vh;
+}
+
 #top-bar {
-    background-color: #EAFDF8;
     margin-top: 1vh;
 }
 
-#user-bar {
-    border-bottom: 3px solid black;
+#calendar-body {
+    height: 100%;
 }
+
+#calendar-body button {
+    max-width: 100%;
+}
+
+#user-info {
+    height: 98vh;
+}
+
+#user-control {
+    min-height: 5vh;
+}
+
+.input-width {
+    width: 100%;
+    max-width: 350px;
+}
+
+#login-form {
+    width: 50vw;
+    margin: 0 auto;
+}
+
+#user-info {
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+}
+
+/* End Dimensions
+Borders/Margins */
 
 .friends {
     height: 10vh;
     border-bottom: 3px solid gray;
 }
 
-#calendar-body {
-    height: 100%;
+#user-bar {
+    border-bottom: 3px solid black;
+}
+
+#date-control .btn-secondary {
+    margin: auto;
+    padding: 10px;
 }
 
 #calendar-body tr {
@@ -45,21 +101,12 @@
     max-width: 14vh;
 }
 
-#calendar-body button {
-    max-width: 100%;
+#date-control {
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 
-#month-and-year {
-    text-align: center;
-}
-
-#user-info {
-    height: 98vh;
-}
-
-#user-control {
-    min-height: 5vh;
-}
+/*End Borders/Margins*/
 
 #friend-group {
     overflow: auto;
@@ -88,27 +135,8 @@
     max-width: 500px;
 }
 
-#login-form {
-    width: 50vw;
-    margin: 0 auto;
-}
-
-.center-wrapper {
+.center-wrapper, #month-and-year {
     text-align: center;
-}
-
-#user-info {
-    margin-top: 1vh;
-    margin-bottom: 1vh;
-}
-
-.btn-info {
-    background: #57737A;
-    border-color: #57737A;
-}
-
-.bg-info {
-    background: #B09398;
 }
 
 #hideIt{
@@ -124,11 +152,6 @@
     fill: red;
     -webkit-transition: fill 0.2s;
     cursor: pointer;
-}
-
-.input-width {
-    width: 100%;
-    max-width: 350px;
 }
 
 #message-box {
@@ -148,14 +171,4 @@
     padding: 10px;
     background-color: green;
     border-radius: 5px;
-}
-
-#date-control .btn-secondary {
-     margin: auto;
-     padding: 10px;
- }
-
-#date-control {
-    padding-top: 5px;
-    padding-bottom: 5px;
 }

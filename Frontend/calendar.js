@@ -56,7 +56,7 @@ function showCalendar(month, year) {
                 cell.setAttribute('id', `${currentYear}${months[currentMonth]}${(`00${actualDate}`).slice(-2)}`);
                 cellText = document.createTextNode(date);
                 if (date === today.getDate() && currentMonth === today.getMonth() && currentYear === today.getFullYear()) {
-                    cell.classList.add('bg-info');
+                    cell.classList.add('currentDay');
                 }
                 cell.appendChild(cellText);
                 row.appendChild(cell);
