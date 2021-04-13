@@ -1,5 +1,6 @@
 /code/Frontend/node_modules/
 /code/Backend/venv/
+/code/Backend/.venv/
 /code/Backend/__pycache__/
 /code/Backend/.idea/
 /code/Frontend/.idea/
