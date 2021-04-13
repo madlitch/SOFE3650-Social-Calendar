@@ -15,7 +15,7 @@ Frontend stack: Electron (HTML, CSS, JS)
 
 Backend stack: Python (FastAPI), PostgreSQL
 
-## How to Replicate this Project WIP
+## How to Replicate this Project
 Requirements:
 1. Python 3
 2. Node
