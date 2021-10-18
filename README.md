@@ -1,6 +1,8 @@
-# **Social Calendar**
+# **SOFE3650 Project - Social Calendar**
 
 ## Introduction
+
+This project is based on the SOFE2720 Final Project, found here: https://github.com/SOFE2720/Social-Calendar-Group-12
 
 Attempting to organize and plan events with friends is always a hassle especially when no one knows when anyone else is available. Our new Social Calendar aims to make event planning infinitely easier by allowing you to see your friends’ public events and sending out invites to new events. Social Calendar provides a lightweight user-friendly package for all your planning needs.
 
