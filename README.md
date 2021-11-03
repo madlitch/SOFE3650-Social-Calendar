@@ -22,6 +22,27 @@ Attempting to organize and plan events with friends is always a hassle especiall
 
 ## Requirements
 
+### Functional Requirements
+
+Users must be able to:
+
+- Create an account and log in
+- Add friends 
+- Add events to their calendar
+- View their events in their calendar
+- View their friend's events in the calendar, based on their visibility
+
 ![Social Calendar Screenshot](/Requirements/Requirements.png)
+
+
+### Non-Functional / Quality Requirements
+
+The program must: 
+
+- Be intuitive and easy to use (Usability)
+- Must keep data securely (Security)
+- Must be cross-platform for desktop applications (Compatibility)
+
+
 
 
