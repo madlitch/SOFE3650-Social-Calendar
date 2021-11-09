@@ -45,7 +45,7 @@ The program must:
 
 ### Progress Report, Use Case Model, Quality Attributes, and System Constraints
 
-Our progress report is available [here](/Progress Report.pdf)
+Our progress report is available ![here](/Progress Report.pdf)
 
 
 
