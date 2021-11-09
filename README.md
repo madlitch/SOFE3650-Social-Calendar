@@ -43,6 +43,10 @@ The program must:
 - Must keep data securely (Security)
 - Must be cross-platform for desktop applications (Compatibility)
 
+### Progress Report, Use Case Model, Quality Attributes, and System Constraints
+
+Our progress report is available [here](/Progress Report.pdf).
+
 
 
 
