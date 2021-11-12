@@ -47,6 +47,8 @@ The program must:
 
 Our progress report is available [here](https://github.com/madlitch/SOFE3650-Project/blob/main/Sofe%20Design%20Progress%20Report.pdf)
 
+### ADD Iteration 1
 
+Our ADD Iteration 1 is available [here](https://github.com/madlitch/SOFE3650-Project/blob/c57965bdebc78c8bb19143a94a3d55c7eba8778d/ADD%20Iteration%201.pdf)
 
 
