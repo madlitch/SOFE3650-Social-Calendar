@@ -254,7 +254,6 @@ The elements to be refined in this iteration are the modules located in the diff
 
 ![Domain Model](/sketches/2.6.1_domain_modell.jpg)
 
-
 #### Primary Use Case Modules
 
 ![Primary Use Case Modules](/sketches/2.6.2_primary_use_case_modules.jpg)
@@ -305,17 +304,30 @@ For this security scenario,  the elements that will be refined are the physical 
 
 ### 3.3 Select One or More Design Concepts that Satisfy the Selected Drivers
 
+| Design Decisions and Location        | Rationale and Assumptions          |
+| ------------- |-------------| 
+| Build Authentication Module based on the OAuth2 Specification with a first party implementation | OAuth2 is the industry-standard protocol for authorization, with a focus on web, desktop, and mobile devices, which works well for our use cases. The developers are also familiar with the technology. |
+| Give the Security Layer direct access to the Data Layer | The interaction between these two layers would allow for quick authentication through direct access to the database, while keeping business logic and security logic separate|
+| Store passwords using the hash + salt technique | This data storage technique would allow for data protection through not storing passwords as plaintext. The inclusion of a salt would guarantee that every password hash is unique.|
 
 ### 3.4 Instantiate Architectural Elements, Allocate Responsibilities, and Define Interfaces
 
+| Design Decisions and Location        | Rationale            |
+| ------------- |-------------| 
+| Cross-Cutting Security Layer on Server Side System Architecture | This layer would allow for the account creation and authentication modules to communicate directly with any layer that requires authentication, while accessing the data layer directly for efficiency |
+| Split security layer into separate account (password) creation and authentication modules| The authentication module would be used for almost endpoint, while the account creation module is used relatively seldomly |
 
 ### 3.5 Sketch Views and Record Design Decisions
 
- ** SKETCHES **
-
+![Modules](/sketches/3.1_modules.jpg)
 
 ### 3.6 Analysis of Current Design, Iteration Goal Review, and Achievement of Design Purpose
 
-
-
-
+| Not Addressed        | Partially Addressed           | Completely Addressed | Design Decisions Made During Iteration |
+| ------------- |-------------| ------------- |-------------| 
+| | QA-2| |The elements that support the associated use case (UC-5) have been identified|
+| | QA-3 | | The elements that support the associated use cases (UC-4, UC-5) have been identified |
+| | QA-4| | No relevant decisions made.|
+| |CON-1| |No relevant decisions made.|
+| |CON-3 | |No relevant decisions made. |
+| | |CRN-1 |No relevant decisions made. |
