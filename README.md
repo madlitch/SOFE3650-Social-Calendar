@@ -286,7 +286,6 @@ The elements to be refined in this iteration are the modules located in the diff
 | |CON-1| |No relevant decisions made.|
 | | |CON-2|No relevant decisions made. |
 | |CON-3 | |No relevant decisions made. |
-| | |CRN-1 |No relevant decisions made. |
 | | |CRN-2 |Modules associated with all of the use cases have been identified and a work assignment matrix has been created (not shown).|
 
 ## ADD Iteration 3
