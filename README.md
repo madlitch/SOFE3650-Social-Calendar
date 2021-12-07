@@ -7,10 +7,10 @@ The old README can be found [here](https://github.com/madlitch/SOFE3650-Project/
 ## Table of Contents
 
 1. [Requirements](#Requirements)
-  - [Use Cases](#use-cases)
-  - [Quality Attributes](#quality-attributes)
-  - [Constraints](#constraints)
-  - [Concers](#concerns)
+  1. [Use Cases](#use-cases)
+  2. [Quality Attributes](#quality-attributes)
+  3. [Constraints](#constraints)
+  4. [Concers](#concerns)
 3. [Example2](#example2)
 4. [Third Example](#third-example)
 5. [Fourth Example](#fourth-examplehttpwwwfourthexamplecom)
