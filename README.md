@@ -7,6 +7,10 @@ The old README can be found [here](https://github.com/madlitch/SOFE3650-Project/
 ## Table of Contents
 
 1. [Requirements](#Requirements)
+  - [Use Cases](#use-cases)
+  - [Quality Attributes](#quality-attributes)
+  - [Constraints](#constraints)
+  - [Concers](#concerns)
 3. [Example2](#example2)
 4. [Third Example](#third-example)
 5. [Fourth Example](#fourth-examplehttpwwwfourthexamplecom)
@@ -48,7 +52,10 @@ The program must:
 - Must keep data securely (Security)
 - Must be cross-platform for desktop applications (Compatibility)
 
-### Use Cases, Quality Attributes, Constraints, and Concerns
+## Use Cases, Quality Attributes, Constraints, and Concerns
+
+### Use Cases
+
 
 ![Use Case Model](/sketches/use_case_model.png)
 
@@ -63,6 +70,8 @@ The program must:
 | UC-7: Multiple Views |  This feature will allow a user to choose how they want their calendar to be displayed (one day, one week, one year etc.) |
 | UC-8: Collect User Data|  Administrators will collect user data such as number of accounts created, number of active accounts, number of events created etc. |
 
+### Quality Attributes
+
 | ID  | Quality Attribute  | Scenario | Associated Use Cases |
 | ------------- |-------------| ------| ------| 
 | QA-1 | Security  | Users need to create an account and login in order to access calendar features, so it can be known who uses the system at what time and prevents unauthorized users from accessing the system.| UC-1|
@@ -70,11 +79,15 @@ The program must:
 | QA-3 |Usability|Users can share and send their own personal calendars with their friends or other users. This will allow the users to visually compare their schedules and decide how to make events. | UC-4, UC-5 |
 | QA-4 |Performance| The system will track the users’ data and how often they use some of the calendar system’s features. The administrator can determine if a feature needs to be tweaked or removed. | |
 
+### Constraints
+
 | ID  | Constraint  | 
 | ------------- |-------------| 
 | CON-1 |The system must support at least 1000 users simultaneously  |
 | CON-2 |The calendar software must be coded in Python, JavaScript, HTML, and CSS|
 | CON-3 |Calendar must allow users to access the next 100 years|
+
+### Concerns
 
 | ID  | Concerns  | 
 | ------------- |-------------| 
