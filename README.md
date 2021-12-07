@@ -145,8 +145,6 @@ It is too early to decide how we precisely want to define the functionalities an
 | | |CRN-1|Reference architecture and deployment pattern have been selected to address this concern. |
 |CRN-2| | |No relevant decisions made. |
 
- 
-
 ## ADD Iteration 2
 
 ### 2.1 Establish Iteration Goal by Selecting Drivers
@@ -214,5 +212,29 @@ The elements to be refined in this iteration are the modules located in the diff
 |CON-3| | | No relevant decisions made.|
 | | |CRN-1|Reference architecture and deployment pattern have been selected to address this concern. |
 |CRN-2| | |No relevant decisions made. |
+
+
+## ADD Iteration 2
+
+### 2.1 Establish Iteration Goal by Selecting Drivers
+
+
+### 2.2 Refine System Elements
+
+
+### 2.3 Select One or More Design Concepts that Satisfy the Selected Drivers
+
+
+### 2.4 Instantiate Architectural Elements, Allocate Responsibilities, and Define Interfaces
+
+
+### 2.5 Sketch Views and Record Design Decisions
+
+ ** SKETCHES **
+
+
+### 2.6 Analysis of Current Design, Iteration Goal Review, and Achievement of Design Purpose
+
+
 
 
