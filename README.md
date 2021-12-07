@@ -15,26 +15,26 @@ The old README can be found [here](https://github.com/madlitch/SOFE3650-Project/
     4. [Concerns](#concerns)
 4. [ADD Iteration 1](#add-iteration-1)
     1. [Reviewing Inputs](#11-reviewing-inputs)
-    2. [Establish Iteration Goal by Selecting Drivers](#12-establish-iteration-goal-by-selecting-drivers)
+    2. [Iteration Goal, Driver Selection](#12-establish-iteration-goal-by-selecting-drivers)
     3. [Refine System Elements](#13-refine-system-elements)
     4. [Design Concepts that Satisfy the Selected Drivers](#14-select-one-or-more-design-concepts-that-satisfy-the-selected-drivers)
-    5. [Instantiate Architectural Elements, Allocate Responsibilities, and Define Interfaces](#15-instantiate-architectural-elements-allocate-responsibilities-and-define-interfaces)
+    5. [Architectural Elements, Responsibilities, and Interfaces](#15-instantiate-architectural-elements-allocate-responsibilities-and-define-interfaces)
     6. [Sketch Views and Record Design Decisions](#16-sketch-views-and-record-design-decisions)
-    7. [Analysis of Current Design, Iteration Goal Review, and Achievement of Design Purpose](#17-analysis-of-current-design-iteration-goal-review-and-achievement-of-design-purpose)
+    7. [Design Analysis, Goal Review, Design Purpose](#17-analysis-of-current-design-iteration-goal-review-and-achievement-of-design-purpose)
 6. [ADD Iteration 2](#add-iteration-2)
-    1. [Establish Iteration Goal by Selecting Drivers](#21-establish-iteration-goal-by-selecting-drivers)
+    1. [Iteration Goal, Driver Selection](#21-establish-iteration-goal-by-selecting-drivers)
     2. [Refine System Elements](#22-refine-system-elements)
     3. [Design Concepts that Satisfy the Selected Drivers](#23-select-one-or-more-design-concepts-that-satisfy-the-selected-drivers)
-    4. [Instantiate Architectural Elements, Allocate Responsibilities, and Define Interfaces](#24-instantiate-architectural-elements-allocate-responsibilities-and-define-interfaces)
+    4. [Architectural Elements, Responsibilities, and Interfaces](#24-instantiate-architectural-elements-allocate-responsibilities-and-define-interfaces)
     5. [Sketch Views and Record Design Decisions](#25-sketch-views-and-record-design-decisions)
-    6. [Analysis of Current Design, Iteration Goal Review, and Achievement of Design Purpose](#26-analysis-of-current-design-iteration-goal-review-and-achievement-of-design-purpose)
+    6. [Design Analysis, Goal Review, Design Purpose](#26-analysis-of-current-design-iteration-goal-review-and-achievement-of-design-purpose)
 8. [ADD Iteration 3](#add-iteration-3)
-    1. [Establish Iteration Goal by Selecting Drivers](#31-establish-iteration-goal-by-selecting-drivers)
+    1. [Iteration Goal, Driver Selection](#31-establish-iteration-goal-by-selecting-drivers)
     2. [Refine System Elements](#32-refine-system-elements)
     3. [Design Concepts that Satisfy the Selected Drivers](#33-select-one-or-more-design-concepts-that-satisfy-the-selected-drivers)
-    4. [Instantiate Architectural Elements, Allocate Responsibilities, and Define Interfaces](#34-instantiate-architectural-elements-allocate-responsibilities-and-define-interfaces)
+    4. [Architectural Elements, Responsibilities, and Interfaces](#34-instantiate-architectural-elements-allocate-responsibilities-and-define-interfaces)
     5. [Sketch Views and Record Design Decisions](#35-sketch-views-and-record-design-decisions)
-    6. [Analysis of Current Design, Iteration Goal Review, and Achievement of Design Purpose](#36-analysis-of-current-design-iteration-goal-review-and-achievement-of-design-purpose)
+    6. [Design Analysis, Goal Review, Design Purpose](#36-analysis-of-current-design-iteration-goal-review-and-achievement-of-design-purpose)
 
 
 ## Introduction
@@ -294,9 +294,14 @@ The elements to be refined in this iteration are the modules located in the diff
 
 ### 3.1 Establish Iteration Goal by Selecting Drivers
 
+For this iteration, the architect focuses on the QA-1 quality attribute scenario: Users need to create an account and login in order to access calendar features, so it can be known who uses the system at what time and prevents unauthorized users from accessing the system.
 
 ### 3.2 Refine System Elements
 
+For this security scenario,  the elements that will be refined are the physical nodes that were identified during the first iteration:
+- Adding a cross-cutting security layer of the Server Side System Architecture
+    - Account creation module
+    - Authentication module
 
 ### 3.3 Select One or More Design Concepts that Satisfy the Selected Drivers
 
