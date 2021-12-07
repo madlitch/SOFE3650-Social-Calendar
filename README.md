@@ -104,7 +104,9 @@ It is too early to decide how we precisely want to define the functionalities an
 
 ### 1.6 Sketch Views and Record Design Decisions
 
-**SKETCHES**
+#### Architecture Model View
+
+![Architecture Model View](/sketches/1.6.1_architecture_model_view.png)
 
 
 | Element        | Responsibility           |
@@ -126,6 +128,11 @@ It is too early to decide how we precisely want to define the functionalities an
 | DB Access Module | This module is responsible for persistence of business entities into the relational database. | 
 | Security Module SS | This module is responsible for controlling access to and from the application. | 
 | Operations Management Module SS | This module is responsible for accessing, diagnosing, and documenting interactions between layers. | 
+
+#### Initial Deployment Diagram
+
+![Initial Deployment Diagram](/sketches/1.6.2_initial_deployment_diagram.jpg)
+
 
 ### 1.7 Analysis of Current Design, Iteration Goal Review, and Achievement of Design Purpose
 
@@ -180,7 +187,14 @@ The elements to be refined in this iteration are the modules located in the diff
 
 ### 2.5 Sketch Views and Record Design Decisions
 
- ** SKETCHES **
+#### Domain Model
+
+![Domain Model](/sketches/2.6.1_domain_modell.jpg)
+
+
+#### Primary Use Case Modules
+
+![Primary Use Case Modules](/sketches/2.6.2_primary_use_case_modules.jpg)
 
 | Element        | Responsibility           |
 | ------------- |-------------| 
