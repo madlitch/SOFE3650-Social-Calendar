@@ -324,9 +324,8 @@ For this security scenario,  the elements that will be refined are the physical 
 
 | Not Addressed        | Partially Addressed           | Completely Addressed | Design Decisions Made During Iteration |
 | ------------- |-------------| ------------- |-------------| 
-| | QA-2| |The elements that support the associated use case (UC-5) have been identified|
-| | QA-3 | | The elements that support the associated use cases (UC-4, UC-5) have been identified |
+| | QA-2| |The introduction of security layers reinforce the need for an account in order to have access to the software system. However, these layers do not have an impact on this quality attribute. Therefore, this driver is marked as "partially addressed".|
+| | QA-3 | | The introduction of security layers reinforce the need for an account in order to have access to the software system. However, these layers do not have an impact on this quality attribute. Therefore, this driver is marked as "partially addressed".|
 | | QA-4| | No relevant decisions made.|
 | |CON-1| |No relevant decisions made.|
 | |CON-3 | |No relevant decisions made. |
-| | |CRN-1 |No relevant decisions made. |
