@@ -52,7 +52,100 @@ Our progress report is available [here](https://github.com/madlitch/SOFE3650-Pro
 
 ## ADD Iteration 1
 
-Our ADD Iteration 1 is available [here](https://github.com/madlitch/SOFE3650-Project/blob/c57965bdebc78c8bb19143a94a3d55c7eba8778d/ADD%20Iteration%201.pdf)
+### 1.1 Reviewing Inputs
+
+| Category        | Details          |
+| ------------- |-------------| 
+|Design Purpose| This is a greenfield system with no prior architectural concerns or liabilities. The purpose is to produce a sufficiently detailed design to support the construction of the system. | 
+| Constraints | All constraints discussed are included as drivers. | 
+| Concerns | All concerns discussed are included as drivers. | 
+
+| Primary Functional Requirements  | Reasoning  | 
+| ------------- |-------------| 
+| UC-1 |  Integral to the functionality of the product |
+| UC-3 |  Integral to the functionality of the product |
+| UC-4 |  Integral to the functionality of the product |
+| UC-5 |  Integral to the functionality of the product |
+| UC-6 |  Integral to the functionality of the product |
+
+| Quality Attribute Scenario ID  | Importance to the Customer          | Difficulty of Implementation |
+| ------------- |-------------| ---|
+| QA-1| High| High|
+|QA-2 | High| Medium|
+|QA-3 | High| Medium|
+|QA-4 | Low| Low|
+
+### 1.2 Establish Iteration Goal by Selecting Drivers
+
+To achieve the Iteration Goal CRN-1 of Establishing an Overall Initial System Structure, the selected drivers needed are as follows:
+- QA-1: Security
+- QA-4: Performance
+- CON-1: The system must support at least 1000 users 
+- CON-2: The calendar software must be coded in Python, JavaScript, HTML, CSS
+
+### 1.3 Refine System Elements
+
+As this is a greenfield system, the element to refine would be the entire social calendar system. Refinement will be performed through decomposition.
+
+### 1.4 Select One or More Design Concepts that Satisfy the Selected Drivers
+
+| Design Decisions and Location  | Rationale  |Discarded Alternatives | 
+| ------------- |-------------| --------|
+| Logically structure the client part of the system using the Rich Client Application reference architecture| The Rich Client Application (RCA) reference architecture supports the development of applications that are installed on the users’ PC. These applications support rich user interface capabilities that are needed for displaying the users’ calendars (UC-3), their friends’ calendars (UC-5), and multiple calendar views (UC-7). | **Rich Internet applications (RIA):** This reference architecture is geared towards the development of applications with a rich user interface that runs inside a web browser. This option was discarded because we want to have an application installed on the users’ computer for usability and convenience. **Web Application:** This reference architecture is oriented toward the development of applications that are accessed from a web browser. This reference architecture was discarded because it is too difficult to provide a user rich interface.|
+|Logically structure the server part of the system using the Service Application reference architecture| This backend server would provide an API for the client application. No other alternatives were considered or discarded, as the architects were familiar with the reference architecture and considered it fully adequate to meet the requirements. | |
+|Physically structure the application using the three-tier deployment |Since the system would have a client application, a backend server, and would need to store user and performance data (UC-1, UC-3, UC-4, UC-6, UC-8), a three-tier deployment is appropriate as a database server would be needed to store this information.| |
+|Build the client application using the Electron framework| The Electron framework allows for the creation of desktop GUI applications using web technologies, providing all of the benefits of a Rich Internet Application and a Web Application, while being locally installed on a user’s machine.| |
+|Build the user interface of the client application using web technologies (HTML/CSS/JS)|Building the user interface with HTML, CSS, and JavaScript is what all the developers are already familiar with (CON-2). | |
+|Build the server part of the system using the FastAPI framework (Python) |Building the backend server system using the FastAPI framework would allow for many concurrent users as it is an asynchronous system (CON-1), and would leverage the existing experience and knowledge of the technology by the developers  (CON-2).| |
+
+### 1.5 Instantiate Architectural Elements, Allocate Responsibilities, and Define Interfaces
+
+It is too early to decide how we precisely want to define the functionalities and interfaces. We will go into further detail in the next iteration.
+
+### 1.6 Sketch Views and Record Design Decisions
+
+**SKETCHES**
+
+
+| Element        | Responsibility           |
+| ------------- |-------------| 
+|Presentation CS|This layer is responsible for user interaction and use case control flow.| 
+| Business Logic CS | This layer contains modules that perform business logic operations on the client side.| 
+| Data CS | This layer is responsible for communicating with the server. | 
+| Services SS | This layer contains modules that show services that are consumed by the clients | 
+| Business Logic SS | This layer contains modules that perform business logic operations on the server side | 
+| Cross-cutting SS |Contains modules that cross different layers, like the security module. | 
+| UI Modules | These modules render the user interface and receive user inputs.|
+| UI Process Modules | These modules are responsible for control flow of all the system use cases (including navigation between screens).   | 
+| Communication Module | These modules utilize the services provided by the application on the server side. | 
+| Business Modules CS | Modules that implement business operations or they expose business functionality from the server side.  | 
+| Business Entities CS | These entities make up the domain model. | 
+| Service Interfaces | These modules expose services that are consumed by the clients | 
+| Business Modules SS | These modules implement business operations.| 
+| Business Entities SS | These entities make up the domain model.   | 
+| DB Access Module | This module is responsible for persistence of business entities into the relational database. | 
+| Security Module SS | This module is responsible for controlling access to and from the application. | 
+| Operations Management Module SS | This module is responsible for accessing, diagnosing, and documenting interactions between layers. | 
+
+### 1.7 Analysis of Current Design, Iteration Goal Review, and Achievement of Design Purpose
+
+| Not Addressed        | Partially Addressed           | Completely Addressed | Design Decisions Made During Iteration |
+| ------------- |-------------| ------------- |-------------| 
+| | UC-1| |Selected reference architecture establishes the modules that will support this functionality.  |
+| | UC-3| |Selected reference architecture establishes the modules that will support this functionality. |
+| | UC-4| |Selected reference architecture establishes the modules that will support this functionality. |
+| | UC-5| |Selected reference architecture establishes the modules that will support this functionality. |
+| | UC-6| |Selected reference architecture establishes the modules that will support this functionality. |
+| QA-2| | |No relevant decisions made.|
+| QA-3| | |No relevant decisions made.|
+| | QA-4| |Selected reference architecture establishes the modules that will support this functionality. |
+| | CON-1| |Selected reference architecture establishes the modules that will support this functionality. Decisions regarding handling of concurrent access have not been made yet. |
+| | |CON-2|The decided overall system structure leverages the development team’s prior experience and skills.|
+|CON-3| | | No relevant decisions made.|
+| | |CRN-1|Reference architecture and deployment pattern have been selected to address this concern. |
+|CRN-2| | |No relevant decisions made. |
+
+ 
 
 ## ADD Iteration 2
 
