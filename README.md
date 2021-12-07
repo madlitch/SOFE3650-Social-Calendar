@@ -116,7 +116,6 @@ It is too early to decide how we precisely want to define the functionalities an
 | Data CS | This layer is responsible for communicating with the server. | 
 | Services SS | This layer contains modules that show services that are consumed by the clients | 
 | Business Logic SS | This layer contains modules that perform business logic operations on the server side | 
-| Cross-cutting SS |Contains modules that cross different layers, like the security module. | 
 | UI Modules | These modules render the user interface and receive user inputs.|
 | UI Process Modules | These modules are responsible for control flow of all the system use cases (including navigation between screens).   | 
 | Communication Module | These modules utilize the services provided by the application on the server side. | 
@@ -126,8 +125,6 @@ It is too early to decide how we precisely want to define the functionalities an
 | Business Modules SS | These modules implement business operations.| 
 | Business Entities SS | These entities make up the domain model.   | 
 | DB Access Module | This module is responsible for persistence of business entities into the relational database. | 
-| Security Module SS | This module is responsible for controlling access to and from the application. | 
-| Operations Management Module SS | This module is responsible for accessing, diagnosing, and documenting interactions between layers. | 
 
 #### Initial Deployment Diagram
 
@@ -213,20 +210,12 @@ The elements to be refined in this iteration are the modules located in the diff
 
 | Not Addressed        | Partially Addressed           | Completely Addressed | Design Decisions Made During Iteration |
 | ------------- |-------------| ------------- |-------------| 
-| | UC-1| |Selected reference architecture establishes the modules that will support this functionality.  |
-| | UC-3| |Selected reference architecture establishes the modules that will support this functionality. |
-| | UC-4| |Selected reference architecture establishes the modules that will support this functionality. |
-| | UC-5| |Selected reference architecture establishes the modules that will support this functionality. |
-| | UC-6| |Selected reference architecture establishes the modules that will support this functionality. |
-| QA-2| | |No relevant decisions made.|
-| QA-3| | |No relevant decisions made.|
-| | QA-4| |Selected reference architecture establishes the modules that will support this functionality. |
-| | CON-1| |Selected reference architecture establishes the modules that will support this functionality. Decisions regarding handling of concurrent access have not been made yet. |
-| | |CON-2|The decided overall system structure leverages the development team’s prior experience and skills.|
-|CON-3| | | No relevant decisions made.|
-| | |CRN-1|Reference architecture and deployment pattern have been selected to address this concern. |
-|CRN-2| | |No relevant decisions made. |
-
+| | | UC-1|Modules across the layers and preliminary interfaces to support this use case have been identified. |
+| | | UC-3|Modules across the layers and preliminary interfaces to support this use case have been identified. |
+| | | UC-4|Modules across the layers and preliminary interfaces to support this use case have been identified. |
+| | | UC-5|Modules across the layers and preliminary interfaces to support this use case have been identified. |
+| | | UC-6|Modules across the layers and preliminary interfaces to support this use case have been identified. |
+| | | QA-4 |Modules across the layers and preliminary interfaces to support this quality attribute have been identified.|
 
 ## ADD Iteration 3
 
