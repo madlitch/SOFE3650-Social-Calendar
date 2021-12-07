@@ -6,14 +6,18 @@ The old README can be found [here](https://github.com/madlitch/SOFE3650-Project/
 
 ## Table of Contents
 
-1. [Requirements](#Requirements)
+1. [Introduction](#introduction)
+2. [Members](#members)
+3. [Requirements](#Requirements)
     1. [Use Cases](#use-cases)
     2. [Quality Attributes](#quality-attributes)
     3. [Constraints](#constraints)
     4. [Concerns](#concerns)
-3. [ADD Iteration 1](#add-iteration-1)
-4. [ADD Iteration 2](#add-iteration-2)
-5. [ADD Iteration 3](#add-iteration-3)
+4. [ADD Iteration 1](#add-iteration-1)
+    1. [Reviewing Inputs](#1.1-reviewing-inputs)
+    2. [Establish Iteration Goal by Selecting Drivers](#1.2-Establish-Iteration-Goal-by-Selecting-Drivers)
+6. [ADD Iteration 2](#add-iteration-2)
+7. [ADD Iteration 3](#add-iteration-3)
 
 
 ## Introduction
