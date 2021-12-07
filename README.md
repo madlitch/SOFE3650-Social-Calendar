@@ -6,6 +6,11 @@ The old README can be found [here](https://github.com/madlitch/SOFE3650-Project/
 
 ## Table of Contents
 
+1. [Requirements](#Requirements)
+3. [Example2](#example2)
+4. [Third Example](#third-example)
+5. [Fourth Example](#fourth-examplehttpwwwfourthexamplecom)
+
 
 ## Introduction
 
@@ -35,9 +40,6 @@ Users must be able to:
 - View their events in their calendar
 - View their friend's events in the calendar, based on their visibility
 
-![Social Calendar Screenshot](/Requirements/Requirements.png)
-
-
 ### Non-Functional / Quality Requirements
 
 The program must: 
@@ -46,9 +48,39 @@ The program must:
 - Must keep data securely (Security)
 - Must be cross-platform for desktop applications (Compatibility)
 
-### Progress Report, Use Case Model, Quality Attributes, and System Constraints
+### Use Cases, Quality Attributes, Constraints, and Concerns
 
-Our progress report is available [here](https://github.com/madlitch/SOFE3650-Project/blob/main/Sofe%20Design%20Progress%20Report.pdf)
+![Use Case Model](/sketches/use_case_model.png)
+
+| Use Case  | Description  | 
+| ------------- |-------------| 
+| UC-1: Sign up/Login system |  Signup/Login page ask users to enter signup/login credentials.  |
+| UC-2: Manage Users |  Account administrator will be able to add/remove users that are using the Calendar. |
+| UC-3: View Events in Calendar |  Users will be able to view any upcoming events in their calendar |
+| UC-4: Add Friends |  Users can send friend requests to other users or accept/decline friend requests from other users. |
+| UC-5: Checks Friends’ Calendars |  Users can see their friend’s calendars but not the calendar of another user that is not their friend. |
+| UC-6: Add Events |  Users can add events to their calendars  |
+| UC-7: Multiple Views |  This feature will allow a user to choose how they want their calendar to be displayed (one day, one week, one year etc.) |
+| UC-8: Collect User Data|  Administrators will collect user data such as number of accounts created, number of active accounts, number of events created etc. |
+
+| ID  | Quality Attribute  | Scenario | Associated Use Cases |
+| ------------- |-------------| ------| ------| 
+| QA-1 | Security  | Users need to create an account and login in order to access calendar features, so it can be known who uses the system at what time and prevents unauthorized users from accessing the system.| UC-1|
+| QA-2 |Usability|Users can share calendars together so they can collaborate in projects. It would also allow them to set up meetings which all project members could see. | UC-5|
+| QA-3 |Usability|Users can share and send their own personal calendars with their friends or other users. This will allow the users to visually compare their schedules and decide how to make events. | UC-4, UC-5 |
+| QA-4 |Performance| The system will track the users’ data and how often they use some of the calendar system’s features. The administrator can determine if a feature needs to be tweaked or removed. | |
+
+| ID  | Constraint  | 
+| ------------- |-------------| 
+| CON-1 |The system must support at least 1000 users simultaneously  |
+| CON-2 |The calendar software must be coded in Python, JavaScript, HTML, and CSS|
+| CON-3 |Calendar must allow users to access the next 100 years|
+
+| ID  | Concerns  | 
+| ------------- |-------------| 
+| CRN-1| We would need to establish an overall initial system structure.|
+| CRN-2 | Allocating work to the members of the development team. |
+
 
 ## ADD Iteration 1
 
