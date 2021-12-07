@@ -18,7 +18,7 @@ The old README can be found [here](https://github.com/madlitch/SOFE3650-Project/
     2. [Establish Iteration Goal by Selecting Drivers](#12-establish-iteration-goal-by-selecting-drivers)
     3. [Refine System Elements](#13-refine-system-elements)
     4. [Design Concepts that Satisfy the Selected Drivers](#14-select-one-or-more-design-concepts-that-satisfy-the-selected-drivers)
-    5. [Instantiate Architectural Elements, Allocate Responsibilities, and Define Interfaces](#11-reviewing-inputs)
+    5. [Instantiate Architectural Elements, Allocate Responsibilities, and Define Interfaces](#15-instantiate-architectural-elements-allocate-responsibilities-and-define-interfaces)
     6. [Sketch Views and Record Design Decisions](#16-sketch-views-and-record-design-decisions)
     7. [Analysis of Current Design, Iteration Goal Review, and Achievement of Design Purpose](#17-analysis-of-current-design-iteration-goal-review-and-achievement-of-design-purpose)
 6. [ADD Iteration 2](#add-iteration-2)
