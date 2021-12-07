@@ -199,5 +199,20 @@ The elements to be refined in this iteration are the modules located in the diff
 
 ### 2.6 Analysis of Current Design, Iteration Goal Review, and Achievement of Design Purpose
 
+| Not Addressed        | Partially Addressed           | Completely Addressed | Design Decisions Made During Iteration |
+| ------------- |-------------| ------------- |-------------| 
+| | UC-1| |Selected reference architecture establishes the modules that will support this functionality.  |
+| | UC-3| |Selected reference architecture establishes the modules that will support this functionality. |
+| | UC-4| |Selected reference architecture establishes the modules that will support this functionality. |
+| | UC-5| |Selected reference architecture establishes the modules that will support this functionality. |
+| | UC-6| |Selected reference architecture establishes the modules that will support this functionality. |
+| QA-2| | |No relevant decisions made.|
+| QA-3| | |No relevant decisions made.|
+| | QA-4| |Selected reference architecture establishes the modules that will support this functionality. |
+| | CON-1| |Selected reference architecture establishes the modules that will support this functionality. Decisions regarding handling of concurrent access have not been made yet. |
+| | |CON-2|The decided overall system structure leverages the development team’s prior experience and skills.|
+|CON-3| | | No relevant decisions made.|
+| | |CRN-1|Reference architecture and deployment pattern have been selected to address this concern. |
+|CRN-2| | |No relevant decisions made. |
 
 
