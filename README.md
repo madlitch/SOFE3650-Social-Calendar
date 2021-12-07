@@ -29,6 +29,12 @@ The old README can be found [here](https://github.com/madlitch/SOFE3650-Project/
     5. [Sketch Views and Record Design Decisions](#25-sketch-views-and-record-design-decisions)
     6. [Analysis of Current Design, Iteration Goal Review, and Achievement of Design Purpose](#26-analysis-of-current-design-iteration-goal-review-and-achievement-of-design-purpose)
 8. [ADD Iteration 3](#add-iteration-3)
+    1. [Establish Iteration Goal by Selecting Drivers](#31-establish-iteration-goal-by-selecting-drivers)
+    2. [Refine System Elements](#32-refine-system-elements)
+    3. [Design Concepts that Satisfy the Selected Drivers](#33-select-one-or-more-design-concepts-that-satisfy-the-selected-drivers)
+    4. [Instantiate Architectural Elements, Allocate Responsibilities, and Define Interfaces](#34-instantiate-architectural-elements-allocate-responsibilities-and-define-interfaces)
+    5. [Sketch Views and Record Design Decisions](#35-sketch-views-and-record-design-decisions)
+    6. [Analysis of Current Design, Iteration Goal Review, and Achievement of Design Purpose](#36-analysis-of-current-design-iteration-goal-review-and-achievement-of-design-purpose)
 
 
 ## Introduction
@@ -286,24 +292,24 @@ The elements to be refined in this iteration are the modules located in the diff
 
 ## ADD Iteration 3
 
-### 2.1 Establish Iteration Goal by Selecting Drivers
+### 3.1 Establish Iteration Goal by Selecting Drivers
 
 
-### 2.2 Refine System Elements
+### 3.2 Refine System Elements
 
 
-### 2.3 Select One or More Design Concepts that Satisfy the Selected Drivers
+### 3.3 Select One or More Design Concepts that Satisfy the Selected Drivers
 
 
-### 2.4 Instantiate Architectural Elements, Allocate Responsibilities, and Define Interfaces
+### 3.4 Instantiate Architectural Elements, Allocate Responsibilities, and Define Interfaces
 
 
-### 2.5 Sketch Views and Record Design Decisions
+### 3.5 Sketch Views and Record Design Decisions
 
  ** SKETCHES **
 
 
-### 2.6 Analysis of Current Design, Iteration Goal Review, and Achievement of Design Purpose
+### 3.6 Analysis of Current Design, Iteration Goal Review, and Achievement of Design Purpose
 
 
 
