@@ -22,7 +22,13 @@ The old README can be found [here](https://github.com/madlitch/SOFE3650-Project/
     6. [Sketch Views and Record Design Decisions](#16-sketch-views-and-record-design-decisions)
     7. [Analysis of Current Design, Iteration Goal Review, and Achievement of Design Purpose](#17-analysis-of-current-design-iteration-goal-review-and-achievement-of-design-purpose)
 6. [ADD Iteration 2](#add-iteration-2)
-7. [ADD Iteration 3](#add-iteration-3)
+    1. [Establish Iteration Goal by Selecting Drivers](#21-establish-iteration-goal-by-selecting-drivers)
+    2. [Refine System Elements](#22-refine-system-elements)
+    3. [Design Concepts that Satisfy the Selected Drivers](#23-select-one-or-more-design-concepts-that-satisfy-the-selected-drivers)
+    4. [Instantiate Architectural Elements, Allocate Responsibilities, and Define Interfaces](#24-instantiate-architectural-elements-allocate-responsibilities-and-define-interfaces)
+    5. [Sketch Views and Record Design Decisions](#25-sketch-views-and-record-design-decisions)
+    6. [Analysis of Current Design, Iteration Goal Review, and Achievement of Design Purpose](#26-analysis-of-current-design-iteration-goal-review-and-achievement-of-design-purpose)
+8. [ADD Iteration 3](#add-iteration-3)
 
 
 ## Introduction
@@ -269,7 +275,14 @@ The elements to be refined in this iteration are the modules located in the diff
 | | | UC-4|Modules across the layers and preliminary interfaces to support this use case have been identified. |
 | | | UC-5|Modules across the layers and preliminary interfaces to support this use case have been identified. |
 | | | UC-6|Modules across the layers and preliminary interfaces to support this use case have been identified. |
-| | | QA-4 |Modules across the layers and preliminary interfaces to support this quality attribute have been identified.|
+| | QA-2| |The elements that support the associated use case (UC-5) have been identified|
+| | QA-3 | | The elements that support the associated use cases (UC-4, UC-5) have been identified |
+| | QA-4| | No relevant decisions made.|
+| |CON-1| |No relevant decisions made.|
+| | |CON-2|No relevant decisions made. |
+| |CON-3 | |No relevant decisions made. |
+| | |CRN-1 |No relevant decisions made. |
+| | |CRN-2 |Modules associated with all of the use cases have been identified and a work assignment matrix has been created (not shown).|
 
 ## ADD Iteration 3
 
