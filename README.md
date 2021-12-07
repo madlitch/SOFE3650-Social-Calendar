@@ -10,10 +10,10 @@ The old README can be found [here](https://github.com/madlitch/SOFE3650-Project/
     1. [Use Cases](#use-cases)
     2. [Quality Attributes](#quality-attributes)
     3. [Constraints](#constraints)
-    4. [Concers](#concerns)
-3. [Example2](#example2)
-4. [Third Example](#third-example)
-5. [Fourth Example](#fourth-examplehttpwwwfourthexamplecom)
+    4. [Concerns](#concerns)
+3. [ADD Iteration 1](#add-iteration-1)
+4. [ADD Iteration 2](#add-iteration-2)
+5. [ADD Iteration 3](#add-iteration-3)
 
 
 ## Introduction
